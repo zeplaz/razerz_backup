@@ -10,13 +10,19 @@ list of contained folders: to find the meat, go to the source folder and check t
 ## Folders
 
 ### test_rezultz
-example binaries backups as well as images of tests
+images of tests outpus,
 
-### test_rezultz oldcode_backupz
-reivsion control backup of iterations.
+## SUBFOLDERS::test_rezultz
+#### binary_backupz
+example binaries backups as well.
+#### oldcode_backupz
+reivsion control backup of iterations..
 
 ### lib_othr
 just bits of files, and examples and notes
+
+### build_stuff 
+likely will be moved, scatchspace for autotools. and cmake etc. 
 
 ### source
 containes the source code for various moduals and programs, and tests in building up engine.
@@ -41,8 +47,6 @@ some examples and unspifed shaders
 
 ### Ship_testz folder
 first tests in opengl, buffers, test of baisc lighting{kinda broken}, shaders and static model loader, obj files.  (current build has an  unstable fragment shader deadly loop!. plus alot of the files nessary where moved to the "basez" folder to test animation as i did not want lots of duplicates.. however you can move then back {into root or add basez/ to the include paths}and should compile fine. through i am modifying them currently one they are more stable will unify....
-
-
 
 #### Current complie line:
 (these are not always uptodate check local Readme)
