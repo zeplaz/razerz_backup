@@ -1,9 +1,11 @@
 
-## razerz
+# razerz
 is a the testbed of a opengl graphics rendering engine.
 
 
 #### Current complie line:
+(these are not always uptodate check local Readme)
+
 addding makefiles and other autotools soon
 
 ##### for ships
@@ -12,9 +14,7 @@ g++ -std=c++17  -Wall -Wextra  main_shpr2_test.cpp   shader_parser.cpp  geometry
 ##### for textrender
  g++ -std=c++17  -Wall -Wextra  p_test.cpp text_render.cpp ../basez/3rdparty/sb7ktx.cpp  -lSDL2_image -lGL -lglut -lGLEW -lglfw3 -pthread -ldl -lGLU -lGL -lrt -lXrandr -lXxf86vm -lXi -lXinerama -lX11 -lassimp -I/usr/include/freetype2  -L/usr/local/lib -lfreetype
 
-
-
-
+##Folders
 
 ### test_rezultz
 example binaries backups as well as images of tests
@@ -25,8 +25,10 @@ reivsion control backup of iterations.
 ### lib_othr
 just bits of files, and examples and notes
 
-##source
-containes the sorcecode for varus moduals and programs
+### source
+containes the source code for various moduals and programs, and tests in building up engine.
+
+## SUBFOLDERS::source
 
 ### basez folder
 files and librays and other aspects used across diffrent moduals/commoents
@@ -36,7 +38,10 @@ programs
 building up a test of riged models... under devlopment no tests thus far
 
 ### phyziz folder
-textrender and future physics commoentz...
+future physics commoentz...
+
+### text_render
+two text rendeing methods, overlay(using KTX and a more complex for gui using freetype2)
 
 ### shaderglsl folder
 some examples and unspifed shaders
