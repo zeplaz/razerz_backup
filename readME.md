@@ -9,7 +9,7 @@ list of contained folders: to find the meat, go to the source folder and check t
 
 ## Folders
 
-### test_rezultz
+### test_rezultz_et_backupz
 images of tests outpus,
 
 ## SUBFOLDERS::test_rezultz
