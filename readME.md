@@ -32,7 +32,7 @@ containes the source code for various moduals and programs, and tests in buildin
 ## SUBFOLDERS::source
 
 ### basez folder
-files and librays and other aspects used across diffrent moduals/commoents
+files and libraries, both internal and 3rd party. (see readme) used across diffrent moduals/commponets etc
 programs
 
 ### animation folder
