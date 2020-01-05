@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.5)
+
+if(MSVC)
+
+else {
+  add_complie_options(-wall -Wextra -Wpedantic);
+  }
