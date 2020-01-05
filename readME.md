@@ -12,7 +12,7 @@ list of contained folders: to find the meat, go to the source folder and check t
 ### test_rezultz_et_backupz
 images of tests outpus,
 
-## SUBFOLDERS::test_rezultz
+### SUBFOLDERS::test_rezultz
 #### binary_backupz
 example binaries backups as well.
 #### oldcode_backupz
