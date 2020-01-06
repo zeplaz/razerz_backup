@@ -29,6 +29,7 @@ and # CPP-Game-Development-By-Example::https://www.packtpub.com/web-development/
 #include <ft2build.h>
 
 constexpr auto LOCAION_ARRAY_SIZE = 4;
+
 constexpr auto LOC_ATTRV_TEXT_INDEX =0;
 constexpr auto LOC_U_TEXT_INDEX =1;
 constexpr auto LOC_U_COLOUR_INDEX =2;
@@ -59,7 +60,7 @@ class text_render_glyph {
 
   //text_render_glyph(std::string in_text,std::string in_font, int size, glm::vec4 in_colour, glm::vec2 in_pos);
   void init(std::string in_text,std::string in_font, int size,
-    glm::vec4 in_colour, glm::vec2 in_pos, GLfloat scale = 1.0f);
+    glm::vec4 in_colour, glm::vec2 in_pos, GLfloat in_scale);
 
   void  draw(gl_shader_t* shadr, int width, int height);
 

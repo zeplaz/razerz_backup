@@ -7,6 +7,33 @@ with their tests, (however reactecturing has resulted in some broken includes)
 ... nevertheless, progject should slowly move to unify the parts.
 list of contained folders: to find the meat, go to the source folder and check the readme
 
+##dependence
+
+c++17
+-pthread
+
+//openglstuff
+need openGL 450
+GLFW
+glm
+GL/glew.h
+GL/glut.h
+GL/freeglut.h
+GL/gl.h
+GL/glu.h
+GLFW/glfw3.h
+
+//loaders
+sp7 ktx loader
+-SDL2_image
+-assimp
+
+//text freetype2
+FT_FREETYPE_H
+ft2build.h
+
+see linker list on compile instructions per unit(update is often in local readme)
+
 ## Folders
 
 ### test_rezultz_et_backupz
@@ -59,4 +86,7 @@ addding makefiles and other autotools soon
 g++ -std=c++17  -Wall -Wextra  main_shpr2_test.cpp   shader_parser.cpp  geometry.cpp opengl_utilityz.cpp geometry_parser.cpp  `pkg-config --cflags gldw3 ` -lSDL2_image -lGL -lglut -lGLEW -lglfw3 -pthread -ldl -lGLU -lGL -lrt -lXrandr -lXxf86vm -lXi -lXinerama -lX11 -lassimp
 
 ##### for textrender
-g++ -std=c++17  -Wall -Wextra -g  p_test.cpp text_render.cpp ../basez/3rdparty/sb7ktx.cpp ../basez/opengl_utilityz.cpp -lSDL2_image -lGL -lglut -lGLEW -lglfw3 -pthread -ldl -lGLU -lGL -lrt -lXrandr -lXxf86vm -lXi -lXinerama -lX11 -lassimp -I/usr/include/freetype2  -L/usr/local/lib -lfreetype
+g++ -std=c++17  -Wall -Wextra   p_test.cpp text_render.cpp ../basez/3rdparty/sb7ktx.cpp
+../basez/opengl_utilityz.cpp  ../basez/shader_parser.cpp
+-lSDL2_image -lGL -lglut -lGLEW -lglfw3 -pthread -ldl -lGLU -lGL -lrt -lXrandr
+-lXxf86vm -lXi -lXinerama -lX11 -lassimp -I/usr/include/freetype2  -L/usr/local/lib -lfreetype

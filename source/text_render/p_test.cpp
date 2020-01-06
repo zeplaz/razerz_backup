@@ -92,10 +92,10 @@ int main(int argc, char* argv[])
 //testfpmt
   std::string thetext = " some text_test";
   std::string curr_font=  "fonts/CODE3X.ttf";
-  glm::vec4 font_colour = glm::vec4(0.2f,0.8f,0.3f,1.0f);
+  glm::vec4 font_colour = glm::vec4(0.4f,0.3f,0.6f,1.0f);
   int size_64 = 64;
   glm::vec2 text_pos = glm::vec2(320.0f, 500.0f);
-    GLfloat scale = 1.f;
+    GLfloat scale = 1.0f;
 
   glphy_render.init(thetext,curr_font,size_64,font_colour,text_pos,scale);
 
@@ -106,12 +106,26 @@ int main(int argc, char* argv[])
 //testfpmt
   std::string thetext2 = " THEOTHERTEXT";
   std::string curr_font2=  "fonts/CODE3X.ttf";
-  glm::vec4 font_colour2 = glm::vec4(0.2f,0.8f,0.3f,1.0f);
+  glm::vec4 font_colour2 = glm::vec4(0.3f,0.6f,0.4f,1.0f);
   int size_642 = 64;
-  glm::vec2 text_pos2 = glm::vec2(120.0f, 600.0f);
-  GLfloat scale2 = 1.f;
+  glm::vec2 text_pos2 = glm::vec2(122.0f, 604.0f);
+  GLfloat scale2 = 1.0f;
 
   glphy_render2.init(thetext2,curr_font2,size_642,font_colour2,text_pos2,scale);
+
+
+  text_render_glyph org_splash;
+  org_splash.get_shader_loc(shader_glyph);
+
+//testfpmt
+  std::string org_splash_thetext = "ORGBURO_CMD_z";
+  std::string org_splash_curr_font=  "fonts/CODE3X.ttf";
+  glm::vec4   org_splash_colour = glm::vec4(0.2f,0.8f,0.3f,1.0f);
+  int org_splash_size_64 = 64;
+  glm::vec2 org_splash_text_pos = glm::vec2(407.0f, 403.0f);
+  GLfloat org_splash_scale = 1.2f;
+
+  org_splash.init(org_splash_thetext,org_splash_curr_font,org_splash_size_64,org_splash_colour,org_splash_text_pos,org_splash_scale);
 
 
     std::cout <<"#####entering main loop setup compleate;\n \n";
@@ -133,7 +147,7 @@ int main(int argc, char* argv[])
 
     glphy_render.draw(shader_glyph,frame_buf_width,frame_buf_hight);
     glphy_render2.draw(shader_glyph,frame_buf_width,frame_buf_hight);
-
+    org_splash.draw(shader_glyph,frame_buf_width,frame_buf_hight);
     glfwSwapBuffers(glfw_window);
 
     glfwPollEvents();

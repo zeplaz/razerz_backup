@@ -6,10 +6,10 @@
 
 
 void text_render_glyph::init(std::string in_text,std::string in_font, int size,
-                           glm::vec4 in_colour,glm::vec2 in_pos, GLfloat scale )
+                           glm::vec4 in_colour,glm::vec2 in_pos, GLfloat in_scale )
 {
   text= in_text;
-  scale  = 1.0f;
+  scale  = in_scale;
   colour =in_colour;
   pos =   in_pos;
   //set_pos(in_pos);
@@ -79,22 +79,24 @@ void text_render_glyph::init(std::string in_text,std::string in_font, int size,
 
   //  confige vbaz
     std::cout << "\n#buffersetupz\n";
+
     glGenVertexArrays(1, &VAO_text);
 	  glGenBuffers(1, &VBO_text);
     glBindVertexArray(VAO_text);
 
+
   	glBindBuffer(GL_ARRAY_BUFFER, VBO_text);
   	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * 6 * 4, NULL, GL_DYNAMIC_DRAW);
 
-  	glEnableVertexAttribArray(loc_array[LOC_ATTRV_TEXT_INDEX]);
+  //	glEnableVertexAttribArray(loc_array[LOC_ATTRV_TEXT_INDEX]);
   	glVertexAttribPointer(loc_array[LOC_ATTRV_TEXT_INDEX], 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
-
+    glEnableVertexArrayAttrib(VAO_text,loc_array[LOC_ATTRV_TEXT_INDEX]);
   	glBindBuffer(GL_ARRAY_BUFFER, 0);
   	glBindVertexArray(0);
 
 }
 
-void text_render_glyph::draw(gl_shader_t* shadr, int width, int height)
+void text_render_glyph::draw(gl_shader_t* shadr, GLint width, GLint height)
 {
   glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -118,11 +120,22 @@ void text_render_glyph::draw(gl_shader_t* shadr, int width, int height)
     //std::cout << s_const;
     character r_char = caracters_map[*s_const];
 
-    GLfloat xpos =  cursor_pos.x+r_char.baseline_glyph.x*scale;
-    GLfloat ypos =  cursor_pos.y-(r_char.glyph_size.y-r_char.baseline_glyph.y) *scale;
+    GLfloat xpos =  cursor_pos.x+r_char.baseline_glyph.x*this->scale;
+    GLfloat ypos =  cursor_pos.y-(r_char.glyph_size.y-r_char.baseline_glyph.y) *this->scale;
 
-    GLfloat width =r_char.glyph_size.x*scale;
-    GLfloat hieght =r_char.glyph_size.y*scale;
+    GLfloat width =r_char.glyph_size.x*this->scale;
+    GLfloat hieght =r_char.glyph_size.y*this->scale;
+
+      GLfloat text_vertxz[24]
+      {
+          xpos, ypos + hieght, 0.0, 0.0,
+  			  xpos, ypos, 0.0, 1.0,
+  			  xpos + width, ypos, 1.0, 1.0 ,
+
+  			  xpos, ypos + hieght, 0.0, 0.0,
+  			  xpos + width, ypos, 1.0, 1.0,
+  			 xpos + width, ypos + hieght, 1.0, 0.0
+      };
 
     GLfloat vba_vertxz[6][4]
     {
@@ -138,19 +151,18 @@ void text_render_glyph::draw(gl_shader_t* shadr, int width, int height)
     glBindTexture(GL_TEXTURE_2D,r_char.texture_ID);
 
     glBindBuffer(GL_ARRAY_BUFFER,VBO_text);
-    glBufferSubData(GL_ARRAY_BUFFER,0,sizeof(vba_vertxz),vba_vertxz);
+    glBufferSubData(GL_ARRAY_BUFFER,0,sizeof(text_vertxz),text_vertxz);
 
     //glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 		// Render quad
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 
-    cursor_pos.x +=(r_char.next_glyph >> 6) * scale;
+    cursor_pos.x +=(r_char.next_glyph >> 6) * this->scale;
     }
 
   glBindVertexArray(0);
 	glBindTexture(GL_TEXTURE_2D, 0);
-
 	glDisable(GL_BLEND);
 
 }
