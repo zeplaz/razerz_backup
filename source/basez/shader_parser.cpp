@@ -67,7 +67,8 @@ void gl_shader_t::create_shader(shader_type shad_type, int s_index)
 
 int run_parse()
 {
-  std::ifstream shader_config("shaderglsl/file_list_shader.xml");
+  std::cout <<"running shader parser func\n";
+  std::ifstream shader_config("../basez/shaderglsl/file_list_shader.xml");
   std::string file_in_string;
   shader_config.seekg(0, std::ios::end);
   file_in_string.reserve(shader_config.tellg());
@@ -94,6 +95,7 @@ int run_parse()
         }
 
       shader_tuple_type* current_tuple_prt;
+std::cout <<"###shderpart3\n";
 
     for(size_t i =0; i<substingz.size(); i++)
     {
@@ -161,7 +163,7 @@ int run_parse()
         }
 
 }
-std::cout << "\n of vec size:final" << shader_tuple_vec.size() <<'\n';
+std::cout << "\n #####shader parser run compleate of vec size:final::" << shader_tuple_vec.size() <<'\n' <<'\n';
 return 0;
 }
 
@@ -210,11 +212,11 @@ void gl_shader::create_shader(shader_type shad_type)
 
    void gl_shader::load_shader_complie()
    {
-
+     std::cout <<"\n->###LOAD-COMPLING NEW SHADER\n";
      GLint vertex_compiled;
      GLint fragment_complied;
      GLchar* log_shader;
-     std::cout << "loading newshader:\n";
+    // std::cout << "loading newshader:\n";
      if(s_type ==shader_type::VERTEX_SHADER)
      {
        const GLchar*  sh_gl_vrx = shader_code_vertex.c_str();
@@ -256,4 +258,5 @@ void gl_shader::create_shader(shader_type shad_type)
         delete log_shader;
        }
      }
+     std::cout <<"\n->###LOAD-COMPLING COMPLEATE \n\n";
    }

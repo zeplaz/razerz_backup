@@ -559,8 +559,6 @@ GLint frame_buf_width,frame_buf_hight;
                     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
                   }
                   }
-
-
       //  float lenz_speed = 2.5*delta_time;
 
         if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)

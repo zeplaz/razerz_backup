@@ -3,6 +3,9 @@
 #include "gl_lib_z.hpp"
 
 static bool screen_beenresized = false;
+
+
+
 void APIENTRY GLAPIENTRY glDebugOutput(GLenum source,
                          GLenum type,
                          GLuint id,
@@ -20,6 +23,11 @@ int opengl_context_settup();
 
 int run_opengl_setup(GLFWwindow* out_window);
 
+/*namespace context_callbacks{
+void process_input_glfw(GLFWwindow* window);
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+}*/
 
 struct offset_table
 {

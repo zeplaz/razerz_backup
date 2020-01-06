@@ -1,6 +1,8 @@
 
 #include "opengl_utilityz.hpp"
+//#include "lenz.hpp"
 
+//static view_lenz* prim_lenz =nullptr;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {    // make sure the viewport matches the new window dimensions; note that width and
