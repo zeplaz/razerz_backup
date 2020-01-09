@@ -12,7 +12,6 @@ REQUIRED:
 c++17
 openGL 450.
 
-
 //external libs
 -pthread
 GLFW
