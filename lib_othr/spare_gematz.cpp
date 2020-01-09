@@ -1,11 +1,4 @@
 
-//from colour.hpp
-
-
-
-
-
-
 
 
 
