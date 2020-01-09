@@ -1,0 +1,8 @@
+digraph "GG" {
+node [
+  fontsize = "12"
+];
+    "node1" [ label="basez" shape="diamond"];
+    "node3" [ label="text_render" shape="house"];
+    "node3" -> "node1" // basez -> text_render
+}

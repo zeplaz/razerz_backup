@@ -1,0 +1,46 @@
+digraph "GG" {
+node [
+  fontsize = "12"
+];
+    "node3" [ label="text_render" shape="house"];
+    "node14" [ label="/usr/lib/x86_64-linux-gnu/libGLU.so" shape="ellipse"];
+    "node3" -> "node14" // text_render -> /usr/lib/x86_64-linux-gnu/libGLU.so
+    "node13" [ label="/usr/lib/x86_64-linux-gnu/libGLX.so" shape="ellipse"];
+    "node3" -> "node13" // text_render -> /usr/lib/x86_64-linux-gnu/libGLX.so
+    "node20" [ label="/usr/lib/x86_64-linux-gnu/libICE.so" shape="ellipse"];
+    "node3" -> "node20" // text_render -> /usr/lib/x86_64-linux-gnu/libICE.so
+    "node12" [ label="/usr/lib/x86_64-linux-gnu/libOpenGL.so" shape="ellipse"];
+    "node3" -> "node12" // text_render -> /usr/lib/x86_64-linux-gnu/libOpenGL.so
+    "node19" [ label="/usr/lib/x86_64-linux-gnu/libSM.so" shape="ellipse"];
+    "node3" -> "node19" // text_render -> /usr/lib/x86_64-linux-gnu/libSM.so
+    "node21" [ label="/usr/lib/x86_64-linux-gnu/libX11.so" shape="ellipse"];
+    "node3" -> "node21" // text_render -> /usr/lib/x86_64-linux-gnu/libX11.so
+    "node22" [ label="/usr/lib/x86_64-linux-gnu/libXext.so" shape="ellipse"];
+    "node3" -> "node22" // text_render -> /usr/lib/x86_64-linux-gnu/libXext.so
+    "node18" [ label="/usr/lib/x86_64-linux-gnu/libXi.so" shape="ellipse"];
+    "node3" -> "node18" // text_render -> /usr/lib/x86_64-linux-gnu/libXi.so
+    "node16" [ label="/usr/lib/x86_64-linux-gnu/libfreetype.so" shape="ellipse"];
+    "node3" -> "node16" // text_render -> /usr/lib/x86_64-linux-gnu/libfreetype.so
+    "node17" [ label="/usr/lib/x86_64-linux-gnu/libglut.so" shape="ellipse"];
+    "node3" -> "node17" // text_render -> /usr/lib/x86_64-linux-gnu/libglut.so
+    "node6" [ label="3rdparty" shape="diamond"];
+    "node3" -> "node6" // text_render -> 3rdparty
+    "node10" [ label="GLEW" shape="ellipse"];
+    "node3" -> "node10" // text_render -> GLEW
+    "node9" [ label="assimp" shape="ellipse"];
+    "node3" -> "node9" // text_render -> assimp
+    "node1" [ label="basez" shape="diamond"];
+    "node3" -> "node1" // text_render -> basez
+    "node4" [ label="cmdz" shape="diamond"];
+    "node3" -> "node4" // text_render -> cmdz
+    "node15" [ label="dl" shape="ellipse"];
+    "node3" -> "node15" // text_render -> dl
+    "node11" [ label="freetype" shape="ellipse"];
+    "node3" -> "node11" // text_render -> freetype
+    "node5" [ label="gk_objz" shape="diamond"];
+    "node3" -> "node5" // text_render -> gk_objz
+    "node8" [ label="glfw3" shape="ellipse"];
+    "node3" -> "node8" // text_render -> glfw3
+    "node7" [ label="text_R" shape="diamond"];
+    "node3" -> "node7" // text_render -> text_R
+}

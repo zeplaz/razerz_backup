@@ -124,6 +124,45 @@ basez/fast:
 .PHONY : basez/fast
 
 #=============================================================================
+# Target rules for targets named text_R
+
+# Build rule for target.
+text_R: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 text_R
+.PHONY : text_R
+
+# fast build rule for target.
+text_R/fast:
+	$(MAKE) -f CMakeFiles/text_R.dir/build.make CMakeFiles/text_R.dir/build
+.PHONY : text_R/fast
+
+#=============================================================================
+# Target rules for targets named 3rdparty
+
+# Build rule for target.
+3rdparty: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 3rdparty
+.PHONY : 3rdparty
+
+# fast build rule for target.
+3rdparty/fast:
+	$(MAKE) -f CMakeFiles/3rdparty.dir/build.make CMakeFiles/3rdparty.dir/build
+.PHONY : 3rdparty/fast
+
+#=============================================================================
+# Target rules for targets named parserz
+
+# Build rule for target.
+parserz: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 parserz
+.PHONY : parserz
+
+# fast build rule for target.
+parserz/fast:
+	$(MAKE) -f CMakeFiles/parserz.dir/build.make CMakeFiles/parserz.dir/build
+.PHONY : parserz/fast
+
+#=============================================================================
 # Target rules for targets named text_render
 
 # Build rule for target.
@@ -161,32 +200,6 @@ gk_objz: cmake_check_build_system
 gk_objz/fast:
 	$(MAKE) -f CMakeFiles/gk_objz.dir/build.make CMakeFiles/gk_objz.dir/build
 .PHONY : gk_objz/fast
-
-#=============================================================================
-# Target rules for targets named 3rdparty
-
-# Build rule for target.
-3rdparty: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 3rdparty
-.PHONY : 3rdparty
-
-# fast build rule for target.
-3rdparty/fast:
-	$(MAKE) -f CMakeFiles/3rdparty.dir/build.make CMakeFiles/3rdparty.dir/build
-.PHONY : 3rdparty/fast
-
-#=============================================================================
-# Target rules for targets named text_R
-
-# Build rule for target.
-text_R: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 text_R
-.PHONY : text_R
-
-# fast build rule for target.
-text_R/fast:
-	$(MAKE) -f CMakeFiles/text_R.dir/build.make CMakeFiles/text_R.dir/build
-.PHONY : text_R/fast
 
 home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/3rdparty/sb7ktx.o: home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/3rdparty/sb7ktx.cpp.o
 
@@ -248,7 +261,7 @@ home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.o: ho
 
 # target to build an object file
 home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o:
-	$(MAKE) -f CMakeFiles/basez.dir/build.make CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o
+	$(MAKE) -f CMakeFiles/parserz.dir/build.make CMakeFiles/parserz.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o
 .PHONY : home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o
 
 home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.i: home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.i
@@ -257,7 +270,7 @@ home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.i: ho
 
 # target to preprocess a source file
 home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.i:
-	$(MAKE) -f CMakeFiles/basez.dir/build.make CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.i
+	$(MAKE) -f CMakeFiles/parserz.dir/build.make CMakeFiles/parserz.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.i
 .PHONY : home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.i
 
 home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.s: home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.s
@@ -266,7 +279,7 @@ home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.s: ho
 
 # target to generate assembly for a file
 home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.s:
-	$(MAKE) -f CMakeFiles/basez.dir/build.make CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.s
+	$(MAKE) -f CMakeFiles/parserz.dir/build.make CMakeFiles/parserz.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.s
 .PHONY : home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.s
 
 home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_pipeline_CMD.o: home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_pipeline_CMD.cpp.o
@@ -385,12 +398,13 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... basez"
+	@echo "... text_R"
+	@echo "... 3rdparty"
+	@echo "... parserz"
 	@echo "... edit_cache"
 	@echo "... text_render"
 	@echo "... cmdz"
 	@echo "... gk_objz"
-	@echo "... 3rdparty"
-	@echo "... text_R"
 	@echo "... home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/3rdparty/sb7ktx.o"
 	@echo "... home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/3rdparty/sb7ktx.i"
 	@echo "... home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/3rdparty/sb7ktx.s"

@@ -70,32 +70,17 @@ CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/base
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/opengl_utilityz.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/opengl_utilityz.cpp -o CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/opengl_utilityz.cpp.s
 
-CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o: CMakeFiles/basez.dir/flags.make
-CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o: /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o -c /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp
-
-CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp > CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.i
-
-CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp -o CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.s
-
 # Object files for target basez
 basez_OBJECTS = \
-"CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/opengl_utilityz.cpp.o" \
-"CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o"
+"CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/opengl_utilityz.cpp.o"
 
 # External object files for target basez
 basez_EXTERNAL_OBJECTS =
 
 libbasez.a: CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/opengl_utilityz.cpp.o
-libbasez.a: CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o
 libbasez.a: CMakeFiles/basez.dir/build.make
 libbasez.a: CMakeFiles/basez.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libbasez.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libbasez.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/basez.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/basez.dir/link.txt --verbose=$(VERBOSE)
 

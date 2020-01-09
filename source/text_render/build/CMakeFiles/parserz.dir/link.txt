@@ -1,0 +1,2 @@
+/usr/bin/ar qc libparserz.a  CMakeFiles/parserz.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o
+/usr/bin/ranlib libparserz.a

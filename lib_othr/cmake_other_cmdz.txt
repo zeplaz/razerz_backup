@@ -1,0 +1,51 @@
+
+target_include_directories(basez PUBLIC
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../basez>"
+)
+
+target_include_directories(cmdz PUBLIC
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../basez>"
+)
+target_include_directories(gk_objz PUBLIC
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../basez>"
+)
+
+target_include_directories(3rdparty PUBLIC
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../basez/3rdparty>"
+)
+
+#ExternalProject_Get_Property(freetype2a install_dir)
+#set(freetype2a_install_dir install_dir)
+
+
+#set(ENV{FREETYPE_DIR} "/usr/include/freetype2")
+#include_directories(
+#  ${CMAKE_INSTALL_PREFIX}/include/freetype2
+#  )
+#set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
+#ind_package(PkgConfig REQUIRED QUIET)
+#pkg_search_module(Freetype
+#REQUIRED
+#IMPORTED_TARGET)
+#include(FindFreetype)
+#if (NOT FREETYPE_FOUND)
+#    message(FATAL_ERROR "HB_HAVE_FREETYPE was set, but we failed to find it. Maybe add a CMAKE_PREFIX_PATH= to your Freetype2 install prefix")
+#  endif()
+
+#list(APPEND THIRD_PARTY_LIBS ${FREETYPE_LIBRARIES})
+#include_directories(AFTER ${FREETYPE_INCLUDE_DIRS})
+#add_definitions(-DHAVE_FREETYPE=1 -DHAVE_FT_FACE_GETCHARVARIANTINDEX=1)
+#target_link_libraries(text_render PRIVATE ${FREETYPE_LIBRARIES})
+#target_include_directories(text_render PRIVATE ${FREETYPE_INCLUDE_DIRS})
+#REETYPE_INCLUDE_DIR_ft2build
+#FREETYPE_INCLUDE_DIR_freetype2
+#FREETYPE_INCLUDE_DIRS
+
+#link_directories(/usr/local/lib)
+#link_directories(/usr/local/lib/x86_64-linux-gnu)
+
+#set(FREETYPE_INCLUDE_DIRS /usr/include/freetype2)
+#et(FREETYPE_LIBRARY /usr/local/lib/x86_64-linux-gnu/libfreetype.a)
+
+# STB_IMAGE
+#add_library(STB_IMAGE )

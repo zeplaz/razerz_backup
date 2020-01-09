@@ -1,2 +1,2 @@
-/usr/bin/ar qc libbasez.a  CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/opengl_utilityz.cpp.o CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o
+/usr/bin/ar qc libbasez.a  CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/opengl_utilityz.cpp.o
 /usr/bin/ranlib libbasez.a

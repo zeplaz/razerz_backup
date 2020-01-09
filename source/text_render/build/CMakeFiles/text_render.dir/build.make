@@ -84,6 +84,7 @@ text_render_EXTERNAL_OBJECTS =
 ../text_render: libcmdz.a
 ../text_render: libgk_objz.a
 ../text_render: libtext_R.a
+../text_render: libparserz.a
 ../text_render: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 ../text_render: /usr/lib/x86_64-linux-gnu/libGLX.so
 ../text_render: /usr/lib/x86_64-linux-gnu/libGLU.so

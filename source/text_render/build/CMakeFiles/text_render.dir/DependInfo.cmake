@@ -12,8 +12,6 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/freetype2"
   "../include"
-  "../../basez/3rdparty"
-  "../../basez"
   )
 
 # Targets to which this target links.
@@ -23,6 +21,7 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles/cmdz.dir/DependInfo.cmake"
   "/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles/gk_objz.dir/DependInfo.cmake"
   "/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles/text_R.dir/DependInfo.cmake"
+  "/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles/parserz.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

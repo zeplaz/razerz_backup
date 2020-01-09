@@ -6,8 +6,3 @@ CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/base
 CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/opengl_utilityz.cpp.o: /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/opengl_utilityz.cpp
 CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/opengl_utilityz.cpp.o: /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/opengl_utilityz.hpp
 
-CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o: /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/gl_lib_z.hpp
-CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o: /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/mathII.hpp
-CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o: /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp
-CMakeFiles/basez.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.cpp.o: /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.hpp
-
