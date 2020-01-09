@@ -1,7 +1,7 @@
 #pragma once
 
-#include "texture.hpp"
-#include "lenz.hpp"
+#include "../basez/texture.hpp"
+#include "../basez/lenz.hpp"
 
 class wavefornt_parser2;
 

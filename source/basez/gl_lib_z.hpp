@@ -125,9 +125,9 @@ struct EnableBitMaskOperators<shader_type>
 
 enum class M_Tex_Flag : unsigned char
 {
-  TEXTYR_NULL      = 0x00,
-  TEXTYR_DEFFUSE     = 0x02,
-  TEXTYR_NORMAL    = 0x04,
+  TEXTYR_NULL     = 0x00,
+  TEXTYR_DEFFUSE  = 0x02,
+  TEXTYR_NORMAL   = 0x04,
   TEXTYR_PARALLAX = 0x08
 };
 

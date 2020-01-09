@@ -139,47 +139,49 @@
 {
     GLuint pipeline = Pipline_map.at(pipe_group);
 
-      switch(to_set)
-      {
-        case shader_type::ALL_PIPE :
-          {
-            glUseProgramStages(pipeline,GL_ALL_SHADER_BITS,program);
-            break;
-          }
-        case shader_type::VERTEX_SHADER :
-        {
-          glUseProgramStages(pipeline,GL_VERTEX_SHADER_BIT,program);
-          break;
-        }
-        case shader_type::FRAGMENT_SHADER :
-        {
-            glUseProgramStages(pipeline,GL_FRAGMENT_SHADER_BIT,program);
-          break;
-        }
+    if((shader_type::FRAGMENT_SHADER & to_set)==shader_type::FRAGMENT_SHADER)
+    {
+      std::cout<<"fragshaderfound\n";
+      glUseProgramStages(pipeline,GL_FRAGMENT_SHADER_BIT,program);
+    }
 
-        case shader_type::TESS_CONTROL_SHADER :
-        {
-            glUseProgramStages(pipeline,GL_VERTEX_SHADER_BIT,program);
-          break;
-        }
+    if((shader_type::VERTEX_SHADER & to_set)==shader_type::VERTEX_SHADER)
+    {
+      std::cout <<"verted shaderfound!\n";
+      glUseProgramStages(pipeline,GL_VERTEX_SHADER_BIT,program);
+    }
 
-        case shader_type::TESS_EVAL_SHADER :
-        {
-            glUseProgramStages(pipeline,GL_TESS_EVALUATION_SHADER_BIT,program);
-          break;
-        }
+    if((shader_type::COMPUTE_SHADER & to_set)==shader_type::COMPUTE_SHADER)
+    {
+    std::cout <<"compute shaderfound!\n";
+    glUseProgramStages(pipeline,GL_VERTEX_SHADER_BIT,program);
+    }
 
-        case shader_type::GEOMETRY_SHADER :
-        {
-            glUseProgramStages(pipeline,GL_GEOMETRY_SHADER_BIT,program);
-          break;
-        }
+    if((shader_type::ALL_PIPE & to_set)==shader_type::ALL_PIPE)
+    {
 
-        case shader_type::COMPUTE_SHADER :
-        {
-            glUseProgramStages(pipeline,GL_VERTEX_SHADER_BIT,program);
-          break;
-        }
+      std::cout <<"all shaderfound!\n";
+      glUseProgramStages(pipeline,GL_ALL_SHADER_BITS,program);
+    }
+
+    if((shader_type::GEOMETRY_SHADER & to_set)==shader_type::GEOMETRY_SHADER)
+    {
+      std::cout <<"all shaderfound!\n";
+      glUseProgramStages(pipeline,GL_GEOMETRY_SHADER_BIT,program);
+    }
+
+
+    if((shader_type::TESS_EVAL_SHADER & to_set)==shader_type::TESS_EVAL_SHADER)
+    {
+
+      std::cout <<"tessleval shaderfound!\n";
+      glUseProgramStages(pipeline,GL_TESS_EVALUATION_SHADER_BIT,program);
+    }
+
+    if((shader_type::TESS_CONTROL_SHADER & to_set)==shader_type::TESS_CONTROL_SHADER)
+    {
+     std::cout <<"teslcontrl shaderfound\n";
+     glUseProgramStages(pipeline,GL_TESS_CONTROL_SHADER_BIT,program);
     }
   }
   };

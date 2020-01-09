@@ -11,17 +11,6 @@ and # CPP-Game-Development-By-Example::https://www.packtpub.com/web-development/
 #include "../basez/gl_lib_z.hpp"
 #include "../basez/shader_pipeline_CMD.hpp"
 #include "../basez/shader_parser.hpp"
-/*
-#include <GL/glew.h>
-#include <GL/glut.h>
-#include <GL/freeglut.h>
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <GLFW/glfw3.h>
-//#include <glm.hpp> // glm::mat4
-
-#include <glm/glm.hpp> // glm::mat4
-#include <glm/ext.hpp> // perspective, translate, rotate*/
 
 #include <map>
 #include <string>

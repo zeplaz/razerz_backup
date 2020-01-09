@@ -1,7 +1,7 @@
 //#include "render_objk_cmd.hpp"
-#include "opengl_utilityz.hpp"
+#include "../basez/opengl_utilityz.hpp"
 #include "scene.hpp"
-#include "lenz.hpp"
+#include "../basez/lenz.hpp"
 
 float delta_time = 0.0f;	// time between current frame and last frame
 float lastFrame = 0.0f;

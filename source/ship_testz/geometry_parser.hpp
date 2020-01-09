@@ -13,7 +13,7 @@
 #include <array>
 #include <memory>
 
-#include "gl_lib_z.hpp"
+#include "../basez/gl_lib_z.hpp"
 
  struct mesh_vertex
 {

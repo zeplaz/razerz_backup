@@ -27,9 +27,12 @@ view_lenz* prim_lenz =nullptr;
 * MAIN!
 */
 
+
+
+
 int main(int argc, char* argv[])
 {
-
+  
   int errocode;
   GLFWwindow* glfw_window;
 
