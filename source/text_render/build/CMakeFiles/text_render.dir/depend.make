@@ -13,12 +13,3 @@ CMakeFiles/text_render.dir/p_test.cpp.o: ../text_render.hpp
 CMakeFiles/text_render.dir/p_test.cpp.o: /usr/include/freetype2/freetype/config/ftheader.h
 CMakeFiles/text_render.dir/p_test.cpp.o: /usr/include/freetype2/ft2build.h
 
-CMakeFiles/text_render.dir/text_render.cpp.o: /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/gl_lib_z.hpp
-CMakeFiles/text_render.dir/text_render.cpp.o: /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/mathII.hpp
-CMakeFiles/text_render.dir/text_render.cpp.o: /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.hpp
-CMakeFiles/text_render.dir/text_render.cpp.o: /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_pipeline_CMD.hpp
-CMakeFiles/text_render.dir/text_render.cpp.o: ../text_render.cpp
-CMakeFiles/text_render.dir/text_render.cpp.o: ../text_render.hpp
-CMakeFiles/text_render.dir/text_render.cpp.o: /usr/include/freetype2/freetype/config/ftheader.h
-CMakeFiles/text_render.dir/text_render.cpp.o: /usr/include/freetype2/ft2build.h
-

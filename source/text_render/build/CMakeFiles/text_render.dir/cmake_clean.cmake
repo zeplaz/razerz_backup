@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/text_render.dir/p_test.cpp.o"
-  "CMakeFiles/text_render.dir/text_render.cpp.o"
-  "text_render.pdb"
-  "text_render"
+  "../text_render.pdb"
+  "../text_render"
 )
 
 # Per-language clean rules from dependency scanning.

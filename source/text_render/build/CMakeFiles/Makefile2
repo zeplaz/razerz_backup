@@ -102,76 +102,43 @@ clean: CMakeFiles/basez.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/3rdparty.dir
+# Target rules for target CMakeFiles/text_render.dir
 
 # All Build rule for target.
-CMakeFiles/3rdparty.dir/all:
-	$(MAKE) -f CMakeFiles/3rdparty.dir/build.make CMakeFiles/3rdparty.dir/depend
-	$(MAKE) -f CMakeFiles/3rdparty.dir/build.make CMakeFiles/3rdparty.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles --progress-num=1,2 "Built target 3rdparty"
-.PHONY : CMakeFiles/3rdparty.dir/all
+CMakeFiles/text_render.dir/all: CMakeFiles/basez.dir/all
+CMakeFiles/text_render.dir/all: CMakeFiles/cmdz.dir/all
+CMakeFiles/text_render.dir/all: CMakeFiles/gk_objz.dir/all
+CMakeFiles/text_render.dir/all: CMakeFiles/3rdparty.dir/all
+CMakeFiles/text_render.dir/all: CMakeFiles/text_R.dir/all
+	$(MAKE) -f CMakeFiles/text_render.dir/build.make CMakeFiles/text_render.dir/depend
+	$(MAKE) -f CMakeFiles/text_render.dir/build.make CMakeFiles/text_render.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles --progress-num=12,13 "Built target text_render"
+.PHONY : CMakeFiles/text_render.dir/all
 
 # Include target in all.
-all: CMakeFiles/3rdparty.dir/all
+all: CMakeFiles/text_render.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/3rdparty.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/3rdparty.dir/all
+CMakeFiles/text_render.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles 13
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/text_render.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles 0
-.PHONY : CMakeFiles/3rdparty.dir/rule
+.PHONY : CMakeFiles/text_render.dir/rule
 
 # Convenience name for target.
-3rdparty: CMakeFiles/3rdparty.dir/rule
+text_render: CMakeFiles/text_render.dir/rule
 
-.PHONY : 3rdparty
-
-# clean rule for target.
-CMakeFiles/3rdparty.dir/clean:
-	$(MAKE) -f CMakeFiles/3rdparty.dir/build.make CMakeFiles/3rdparty.dir/clean
-.PHONY : CMakeFiles/3rdparty.dir/clean
+.PHONY : text_render
 
 # clean rule for target.
-clean: CMakeFiles/3rdparty.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/gk_objz.dir
-
-# All Build rule for target.
-CMakeFiles/gk_objz.dir/all:
-	$(MAKE) -f CMakeFiles/gk_objz.dir/build.make CMakeFiles/gk_objz.dir/depend
-	$(MAKE) -f CMakeFiles/gk_objz.dir/build.make CMakeFiles/gk_objz.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles --progress-num=8,9 "Built target gk_objz"
-.PHONY : CMakeFiles/gk_objz.dir/all
-
-# Include target in all.
-all: CMakeFiles/gk_objz.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/gk_objz.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/gk_objz.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles 0
-.PHONY : CMakeFiles/gk_objz.dir/rule
-
-# Convenience name for target.
-gk_objz: CMakeFiles/gk_objz.dir/rule
-
-.PHONY : gk_objz
+CMakeFiles/text_render.dir/clean:
+	$(MAKE) -f CMakeFiles/text_render.dir/build.make CMakeFiles/text_render.dir/clean
+.PHONY : CMakeFiles/text_render.dir/clean
 
 # clean rule for target.
-CMakeFiles/gk_objz.dir/clean:
-	$(MAKE) -f CMakeFiles/gk_objz.dir/build.make CMakeFiles/gk_objz.dir/clean
-.PHONY : CMakeFiles/gk_objz.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/gk_objz.dir/clean
+clean: CMakeFiles/text_render.dir/clean
 
 .PHONY : clean
 
@@ -213,42 +180,113 @@ clean: CMakeFiles/cmdz.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/text_render.dir
+# Target rules for target CMakeFiles/gk_objz.dir
 
 # All Build rule for target.
-CMakeFiles/text_render.dir/all: CMakeFiles/basez.dir/all
-CMakeFiles/text_render.dir/all: CMakeFiles/3rdparty.dir/all
-CMakeFiles/text_render.dir/all: CMakeFiles/gk_objz.dir/all
-CMakeFiles/text_render.dir/all: CMakeFiles/cmdz.dir/all
-	$(MAKE) -f CMakeFiles/text_render.dir/build.make CMakeFiles/text_render.dir/depend
-	$(MAKE) -f CMakeFiles/text_render.dir/build.make CMakeFiles/text_render.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles --progress-num=10,11,12 "Built target text_render"
-.PHONY : CMakeFiles/text_render.dir/all
+CMakeFiles/gk_objz.dir/all:
+	$(MAKE) -f CMakeFiles/gk_objz.dir/build.make CMakeFiles/gk_objz.dir/depend
+	$(MAKE) -f CMakeFiles/gk_objz.dir/build.make CMakeFiles/gk_objz.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles --progress-num=8,9 "Built target gk_objz"
+.PHONY : CMakeFiles/gk_objz.dir/all
 
 # Include target in all.
-all: CMakeFiles/text_render.dir/all
+all: CMakeFiles/gk_objz.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/text_render.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles 12
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/text_render.dir/all
+CMakeFiles/gk_objz.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/gk_objz.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles 0
-.PHONY : CMakeFiles/text_render.dir/rule
+.PHONY : CMakeFiles/gk_objz.dir/rule
 
 # Convenience name for target.
-text_render: CMakeFiles/text_render.dir/rule
+gk_objz: CMakeFiles/gk_objz.dir/rule
 
-.PHONY : text_render
-
-# clean rule for target.
-CMakeFiles/text_render.dir/clean:
-	$(MAKE) -f CMakeFiles/text_render.dir/build.make CMakeFiles/text_render.dir/clean
-.PHONY : CMakeFiles/text_render.dir/clean
+.PHONY : gk_objz
 
 # clean rule for target.
-clean: CMakeFiles/text_render.dir/clean
+CMakeFiles/gk_objz.dir/clean:
+	$(MAKE) -f CMakeFiles/gk_objz.dir/build.make CMakeFiles/gk_objz.dir/clean
+.PHONY : CMakeFiles/gk_objz.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/gk_objz.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/3rdparty.dir
+
+# All Build rule for target.
+CMakeFiles/3rdparty.dir/all:
+	$(MAKE) -f CMakeFiles/3rdparty.dir/build.make CMakeFiles/3rdparty.dir/depend
+	$(MAKE) -f CMakeFiles/3rdparty.dir/build.make CMakeFiles/3rdparty.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles --progress-num=1,2 "Built target 3rdparty"
+.PHONY : CMakeFiles/3rdparty.dir/all
+
+# Include target in all.
+all: CMakeFiles/3rdparty.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/3rdparty.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/3rdparty.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles 0
+.PHONY : CMakeFiles/3rdparty.dir/rule
+
+# Convenience name for target.
+3rdparty: CMakeFiles/3rdparty.dir/rule
+
+.PHONY : 3rdparty
+
+# clean rule for target.
+CMakeFiles/3rdparty.dir/clean:
+	$(MAKE) -f CMakeFiles/3rdparty.dir/build.make CMakeFiles/3rdparty.dir/clean
+.PHONY : CMakeFiles/3rdparty.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/3rdparty.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/text_R.dir
+
+# All Build rule for target.
+CMakeFiles/text_R.dir/all:
+	$(MAKE) -f CMakeFiles/text_R.dir/build.make CMakeFiles/text_R.dir/depend
+	$(MAKE) -f CMakeFiles/text_R.dir/build.make CMakeFiles/text_R.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles --progress-num=10,11 "Built target text_R"
+.PHONY : CMakeFiles/text_R.dir/all
+
+# Include target in all.
+all: CMakeFiles/text_R.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/text_R.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/text_R.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/build/CMakeFiles 0
+.PHONY : CMakeFiles/text_R.dir/rule
+
+# Convenience name for target.
+text_R: CMakeFiles/text_R.dir/rule
+
+.PHONY : text_R
+
+# clean rule for target.
+CMakeFiles/text_R.dir/clean:
+	$(MAKE) -f CMakeFiles/text_R.dir/build.make CMakeFiles/text_R.dir/clean
+.PHONY : CMakeFiles/text_R.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/text_R.dir/clean
 
 .PHONY : clean
 

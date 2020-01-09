@@ -13,12 +13,3 @@ CMakeFiles/text_render.dir/p_test.cpp.o
  /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/text_render.hpp
  /usr/include/freetype2/freetype/config/ftheader.h
  /usr/include/freetype2/ft2build.h
-CMakeFiles/text_render.dir/text_render.cpp.o
- /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/gl_lib_z.hpp
- /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/mathII.hpp
- /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_parser.hpp
- /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_pipeline_CMD.hpp
- /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/text_render.cpp
- /home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/text_render/text_render.hpp
- /usr/include/freetype2/freetype/config/ftheader.h
- /usr/include/freetype2/ft2build.h

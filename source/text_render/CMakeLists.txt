@@ -139,7 +139,7 @@ target_compile_options(basez PUBLIC
 "$<$<CONFIG:DEBUG>:$(CXX_FLAGS_DEBUG)>"
 "$<$<CONFIG:RELEASE>:$(CXX_FLAGS_RELEASE)>"
 )
-
+set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_executable(text_render p_test.cpp )
 target_include_directories(text_render PRIVATE ${FREETYPE_INCLUDE_DIRS})

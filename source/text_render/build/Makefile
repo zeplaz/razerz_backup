@@ -124,30 +124,17 @@ basez/fast:
 .PHONY : basez/fast
 
 #=============================================================================
-# Target rules for targets named 3rdparty
+# Target rules for targets named text_render
 
 # Build rule for target.
-3rdparty: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 3rdparty
-.PHONY : 3rdparty
+text_render: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 text_render
+.PHONY : text_render
 
 # fast build rule for target.
-3rdparty/fast:
-	$(MAKE) -f CMakeFiles/3rdparty.dir/build.make CMakeFiles/3rdparty.dir/build
-.PHONY : 3rdparty/fast
-
-#=============================================================================
-# Target rules for targets named gk_objz
-
-# Build rule for target.
-gk_objz: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gk_objz
-.PHONY : gk_objz
-
-# fast build rule for target.
-gk_objz/fast:
-	$(MAKE) -f CMakeFiles/gk_objz.dir/build.make CMakeFiles/gk_objz.dir/build
-.PHONY : gk_objz/fast
+text_render/fast:
+	$(MAKE) -f CMakeFiles/text_render.dir/build.make CMakeFiles/text_render.dir/build
+.PHONY : text_render/fast
 
 #=============================================================================
 # Target rules for targets named cmdz
@@ -163,17 +150,43 @@ cmdz/fast:
 .PHONY : cmdz/fast
 
 #=============================================================================
-# Target rules for targets named text_render
+# Target rules for targets named gk_objz
 
 # Build rule for target.
-text_render: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 text_render
-.PHONY : text_render
+gk_objz: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gk_objz
+.PHONY : gk_objz
 
 # fast build rule for target.
-text_render/fast:
-	$(MAKE) -f CMakeFiles/text_render.dir/build.make CMakeFiles/text_render.dir/build
-.PHONY : text_render/fast
+gk_objz/fast:
+	$(MAKE) -f CMakeFiles/gk_objz.dir/build.make CMakeFiles/gk_objz.dir/build
+.PHONY : gk_objz/fast
+
+#=============================================================================
+# Target rules for targets named 3rdparty
+
+# Build rule for target.
+3rdparty: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 3rdparty
+.PHONY : 3rdparty
+
+# fast build rule for target.
+3rdparty/fast:
+	$(MAKE) -f CMakeFiles/3rdparty.dir/build.make CMakeFiles/3rdparty.dir/build
+.PHONY : 3rdparty/fast
+
+#=============================================================================
+# Target rules for targets named text_R
+
+# Build rule for target.
+text_R: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 text_R
+.PHONY : text_R
+
+# fast build rule for target.
+text_R/fast:
+	$(MAKE) -f CMakeFiles/text_R.dir/build.make CMakeFiles/text_R.dir/build
+.PHONY : text_R/fast
 
 home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/3rdparty/sb7ktx.o: home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/3rdparty/sb7ktx.cpp.o
 
@@ -343,7 +356,7 @@ text_render.o: text_render.cpp.o
 
 # target to build an object file
 text_render.cpp.o:
-	$(MAKE) -f CMakeFiles/text_render.dir/build.make CMakeFiles/text_render.dir/text_render.cpp.o
+	$(MAKE) -f CMakeFiles/text_R.dir/build.make CMakeFiles/text_R.dir/text_render.cpp.o
 .PHONY : text_render.cpp.o
 
 text_render.i: text_render.cpp.i
@@ -352,7 +365,7 @@ text_render.i: text_render.cpp.i
 
 # target to preprocess a source file
 text_render.cpp.i:
-	$(MAKE) -f CMakeFiles/text_render.dir/build.make CMakeFiles/text_render.dir/text_render.cpp.i
+	$(MAKE) -f CMakeFiles/text_R.dir/build.make CMakeFiles/text_R.dir/text_render.cpp.i
 .PHONY : text_render.cpp.i
 
 text_render.s: text_render.cpp.s
@@ -361,7 +374,7 @@ text_render.s: text_render.cpp.s
 
 # target to generate assembly for a file
 text_render.cpp.s:
-	$(MAKE) -f CMakeFiles/text_render.dir/build.make CMakeFiles/text_render.dir/text_render.cpp.s
+	$(MAKE) -f CMakeFiles/text_R.dir/build.make CMakeFiles/text_R.dir/text_render.cpp.s
 .PHONY : text_render.cpp.s
 
 # Help Target
@@ -372,11 +385,12 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... basez"
-	@echo "... 3rdparty"
-	@echo "... gk_objz"
 	@echo "... edit_cache"
-	@echo "... cmdz"
 	@echo "... text_render"
+	@echo "... cmdz"
+	@echo "... gk_objz"
+	@echo "... 3rdparty"
+	@echo "... text_R"
 	@echo "... home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/3rdparty/sb7ktx.o"
 	@echo "... home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/3rdparty/sb7ktx.i"
 	@echo "... home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/3rdparty/sb7ktx.s"
