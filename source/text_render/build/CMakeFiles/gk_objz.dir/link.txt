@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgk_objz.a  CMakeFiles/gk_objz.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/texture.cpp.o
+/usr/bin/ranlib libgk_objz.a

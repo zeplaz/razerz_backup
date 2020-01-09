@@ -25,4 +25,6 @@ void main(void)
   if(val ==0.0)
   discard;
   frag_colour = vec4(0.2,1.0,0.3,1.0);
+
+  frag_colour =vec4(0.2,1.0,0.3,1.0)*texelFetch(font_texture,ivec3(textel_cord,active_char),0).xxxx;
 }

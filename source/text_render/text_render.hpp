@@ -9,7 +9,9 @@ and # CPP-Game-Development-By-Example::https://www.packtpub.com/web-development/
 
 
 #include "../basez/gl_lib_z.hpp"
+#include "../basez/shader_pipeline_CMD.hpp"
 #include "../basez/shader_parser.hpp"
+/*
 #include <GL/glew.h>
 #include <GL/glut.h>
 #include <GL/freeglut.h>
@@ -19,7 +21,7 @@ and # CPP-Game-Development-By-Example::https://www.packtpub.com/web-development/
 //#include <glm.hpp> // glm::mat4
 
 #include <glm/glm.hpp> // glm::mat4
-#include <glm/ext.hpp> // perspective, translate, rotate
+#include <glm/ext.hpp> // perspective, translate, rotate*/
 
 #include <map>
 #include <string>
@@ -27,7 +29,7 @@ and # CPP-Game-Development-By-Example::https://www.packtpub.com/web-development/
 
 
 #include <ft2build.h>
-
+//#include "../basez/3rdparty/ft2build.h"
 constexpr auto LOCAION_ARRAY_SIZE = 4;
 
 constexpr auto LOC_ATTRV_TEXT_INDEX =0;
@@ -103,12 +105,14 @@ inline void set_shader(gl_shader_t* shdr)
 class text_overlay{
 
   private :
+
+  gl_shader_t* shadr;
   GLuint text_buff;
   GLuint font_texture;
   GLuint VAO_textover;
 
   char* screen_buff;
-  int buff_hieght;
+  int buff_height;
   int buff_width;
   bool need_update;
   int cursor_x;
@@ -116,15 +120,27 @@ class text_overlay{
 
 
   public :
+  void init();
 
-  void draw(gl_shader* shadr);
+  void draw();
+  inline void set_shader(gl_shader_t* in_shd)
+  {
+    shadr=in_shd;
+  }
 
-  void draw_text(const char* in_string, int x,int y);
+
+  void update_text(const char* in_string, int x,int y);
   void shutdown();
   void clear();
 
   void scroll(int linez);
-  void move_cursor(int x, int y);
+  inline void move_cursor(int x, int y)
+  {
+     cursor_x=x;
+     cursor_y=y;
+  }
+
+
 
 
 };

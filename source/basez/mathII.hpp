@@ -290,7 +290,7 @@ Type Dot_vec_3d(vector3_vala<Type>& v1,vector3_vala<Type>& v2)
     Quaternion4D operator+(const Quaternion4D& q)const
     {
       Type scalar =s+q.s;
-      vector3_vala temp = v+q.v;
+      vector3_vala<Type> temp = v+q.v;
       return Quaternion4D(scalar,temp);
     }
 

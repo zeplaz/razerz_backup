@@ -1,5 +1,8 @@
 
 #include "opengl_utilityz.hpp"
+
+#include <ctime>
+#include <stdio.h>
 //#include "lenz.hpp"
 
 //static view_lenz* prim_lenz =nullptr;
@@ -9,6 +12,57 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     // height will be significantly larger than specified on retina displays.
     glViewport(0, 0, width, height);
     screen_beenresized = true;
+}
+
+
+void take_screenshot_to_file(int& frame_buf_width,int& frame_buf_hieght)
+{
+  #pragma pack(push,1)
+  struct {
+    unsigned char idenity_size;
+    unsigned char colour_map_type;
+    unsigned char imagetype;
+    short cmap_start;
+    short cmap_size;
+    unsigned char num_bits_palette;
+    short xorigin;
+    short yorigin;
+    short width;
+    short height;
+    unsigned char bitzperpix;
+    unsigned char descriptor_bit;
+
+  }tga_header;
+  #pragma pack(pop)
+
+  int row_size  = ((frame_buf_width*3*3)& ~3);
+  int data_size = row_size*frame_buf_hieght;
+  unsigned char* data = new unsigned char [data_size];
+
+glReadPixels(0,0,frame_buf_width,frame_buf_hieght,GL_BGR,GL_UNSIGNED_BYTE,data);
+
+memset(&tga_header,0,sizeof(tga_header));
+tga_header.imagetype =2;
+tga_header.width =(short)frame_buf_width;
+tga_header.height=(short)frame_buf_hieght;
+tga_header.bitzperpix =24;
+
+std::string file_name;
+std::cout << "screenshotcaptured...what shall filenamebe?:";
+std::cin >> file_name;
+
+  time_t now = time(0);
+ // convert now to string form
+   char* dt = ctime(&now);
+   std::string write_name = file_name+"_"+dt+".tga";
+
+   FILE * screen_out = fopen(write_name.c_str(),"wb");
+  fwrite(&tga_header,sizeof(tga_header),1,screen_out);
+  fwrite(data,data_size,1,screen_out);
+  fclose(screen_out);
+  std::cout << "file writen to running dir::" << write_name <<'\n';
+  delete []data;
+
 }
 
 void APIENTRY GLAPIENTRY glDebugOutput(GLenum source,

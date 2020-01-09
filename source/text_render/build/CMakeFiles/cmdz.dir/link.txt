@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcmdz.a  CMakeFiles/cmdz.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/shader_pipeline_CMD.cpp.o
+/usr/bin/ranlib libcmdz.a

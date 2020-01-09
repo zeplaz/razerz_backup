@@ -124,28 +124,28 @@ void text_render_glyph::draw(gl_shader_t* shadr, GLint width, GLint height)
     GLfloat ypos =  cursor_pos.y-(r_char.glyph_size.y-r_char.baseline_glyph.y) *this->scale;
 
     GLfloat width =r_char.glyph_size.x*this->scale;
-    GLfloat hieght =r_char.glyph_size.y*this->scale;
+    GLfloat height =r_char.glyph_size.y*this->scale;
 
       GLfloat text_vertxz[24]
       {
-          xpos, ypos + hieght, 0.0, 0.0,
+          xpos, ypos + height, 0.0, 0.0,
   			  xpos, ypos, 0.0, 1.0,
   			  xpos + width, ypos, 1.0, 1.0 ,
 
-  			  xpos, ypos + hieght, 0.0, 0.0,
+  			  xpos, ypos + height, 0.0, 0.0,
   			  xpos + width, ypos, 1.0, 1.0,
-  			 xpos + width, ypos + hieght, 1.0, 0.0
+  			 xpos + width, ypos + height, 1.0, 0.0
       };
 
     GLfloat vba_vertxz[6][4]
     {
-      { xpos, ypos + hieght, 0.0, 0.0 },
+      { xpos, ypos + height, 0.0, 0.0 },
 			{ xpos, ypos, 0.0, 1.0 },
 			{ xpos + width, ypos, 1.0, 1.0 },
 
-			{ xpos, ypos + hieght, 0.0, 0.0 },
+			{ xpos, ypos + height, 0.0, 0.0 },
 			{ xpos + width, ypos, 1.0, 1.0 },
-			{ xpos + width, ypos + hieght, 1.0, 0.0 }
+			{ xpos + width, ypos + height, 1.0, 0.0 }
 		};
 
     glBindTexture(GL_TEXTURE_2D,r_char.texture_ID);
@@ -164,5 +164,55 @@ void text_render_glyph::draw(gl_shader_t* shadr, GLint width, GLint height)
   glBindVertexArray(0);
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glDisable(GL_BLEND);
+
+}
+
+
+void text_overlay::shutdown()
+{
+  delete[] screen_buff;
+  glDeleteTextures(1, &font_texture);
+  glDeleteTextures(1, &text_buff);
+  glDeleteVertexArrays(1, &VAO_textover);
+}
+
+void text_overlay::init()
+{
+
+}
+
+void text_overlay::scroll(int linez)
+{
+  const char* src = screen_buff + linez*buff_width;
+  char* temp_str = screen_buff;
+  memmove(temp_str, src, (buff_height - linez) * buff_width);
+  need_update = true;
+}
+
+void text_overlay::update_text(const char* str,int x, int y)
+{
+  char* temp_str = screen_buff +y*buff_width+x;
+  strcpy(temp_str, str);
+  need_update = true;
+}
+void text_overlay::draw()
+{
+  shadr->use_shader();
+
+  glBindTextureUnit(0,text_buff);
+
+  if(need_update)
+  {
+    glTextureSubImage2D(text_buff,0,0,0,buff_width,buff_height,
+                        GL_RED_INTEGER,GL_UNSIGNED_BYTE,screen_buff);
+
+    need_update =false;
+  }
+
+
+  glBindTextureUnit(1,font_texture);
+
+  glBindVertexArray(VAO_textover);
+  glDrawArrays(GL_TRIANGLE_STRIP,0,4);
 
 }

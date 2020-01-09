@@ -29,6 +29,10 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 }*/
 
+
+
+void take_screenshot_to_file(int& frame_buf_width,int& frame_buf_hieght);
+
 struct offset_table
 {
   static const size_t struc_internal_offset = 16;

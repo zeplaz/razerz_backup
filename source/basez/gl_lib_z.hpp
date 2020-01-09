@@ -113,8 +113,8 @@ enum class shader_type : unsigned char {
      FRAGMENT_SHADER     = 0x08,
      TESS_CONTROL_SHADER = 0x10,
      TESS_EVAL_SHADER    = 0x20,
-     GEOMETRY_SHADER     = 0x40
-
+     GEOMETRY_SHADER     = 0x40,
+     ALL_PIPE            = 0x80
 };
 
 template<>
@@ -194,6 +194,23 @@ enum class Format {
 enum WP_obj_tuple_feture
 {
   INDEX_NUM,PAIR_NAME,VERTEX_VEC_DATA, FACE_VEC_DATA
+};
+
+enum class Shader_Pipeline : unsigned int
+{
+  PRIMARY_PIPELINE_A,
+  TEXT_PIPELINE_A,
+  GUI_PIPELINE_A
+
+};
+enum class Shader_Program : unsigned int
+{
+  RENDER_TEXT_GLYPH_A,
+  RENDER_TEXT_OVERLAY_A,
+  BASE_A,
+  LIGHT_BASE_D,
+  ANIMATION_BASE_A
+
 };
 
 enum SHDtype_index : uint8_t

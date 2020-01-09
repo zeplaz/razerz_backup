@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib3rdparty.a  CMakeFiles/3rdparty.dir/home/orgburo/Dev_envo_workspace/gitrepoz/razerz/source/basez/3rdparty/sb7ktx.cpp.o
+/usr/bin/ranlib lib3rdparty.a
