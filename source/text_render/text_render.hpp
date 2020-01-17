@@ -1,12 +1,9 @@
 #pragma once
-
-
 /*
 Metierals and soruce from sb7 ::https://github.com/openglsuperbible/sb7code
 and # CPP-Game-Development-By-Example::https://www.packtpub.com/web-development/c-game-development-example?utm_source=github&utm_medium=repository&utm_campaign
 
 */
-
 
 #include "../basez/gl_lib_z.hpp"
 #include "../basez/shader_pipeline_CMD.hpp"
@@ -16,11 +13,9 @@ and # CPP-Game-Development-By-Example::https://www.packtpub.com/web-development/
 #include <string>
 #include <iostream>
 
-
 #include <ft2build.h>
 //#include "../basez/3rdparty/ft2build.h"
 constexpr auto LOCAION_ARRAY_SIZE = 4;
-
 constexpr auto LOC_ATTRV_TEXT_INDEX =0;
 constexpr auto LOC_U_TEXT_INDEX =1;
 constexpr auto LOC_U_COLOUR_INDEX =2;
@@ -78,8 +73,6 @@ inline void get_shader_loc(gl_shader_t* shadr)
   loc_array[LOC_U_PROJ_INDEX] = glGetUniformLocation(shadr->program_ID,"proj");
 
   loc_array[LOC_ATTRV_TEXT_INDEX] = glGetAttribLocation(shadr->program_ID,"vertex_pos_tex");
-
-
 }
 
 inline void set_shader(gl_shader_t* shdr)
@@ -90,12 +83,20 @@ inline void set_shader(gl_shader_t* shdr)
 
 };
 
+struct text_obj
+{
+  std::vector<GLubyte> char_colour_pallete;
+
+
+};
 
 class text_overlay{
 
   private :
-
   gl_shader_t* shadr;
+  GLuint mpropipline_ID;
+  bool usepipeline = false;
+
   GLuint text_buff;
   GLuint font_texture;
   GLuint VAO_textover;
@@ -109,27 +110,31 @@ class text_overlay{
 
 
   public :
-  void init();
 
+  void init();
   void draw();
+  void update_text(const char* in_string, int x,int y);
+  void shutdown();
+  void scroll(int linez);
+  void print_text(const char* str);
+  void set_used_pipline_ID(GLuint in_progam_pipe);
+
   inline void set_shader(gl_shader_t* in_shd)
   {
     shadr=in_shd;
   }
+  inline void clear()
+  {
+    memset(screen_buff,0,buff_width*buff_height);
+    need_update = true;
+    cursor_x = 0;
+    cursor_y =0;
+  }
 
-
-  void update_text(const char* in_string, int x,int y);
-  void shutdown();
-  void clear();
-
-  void scroll(int linez);
   inline void move_cursor(int x, int y)
   {
      cursor_x=x;
      cursor_y=y;
   }
-
-
-
 
 };

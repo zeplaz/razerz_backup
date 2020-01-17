@@ -2,9 +2,6 @@
 #pragma once
 #include "gl_lib_z.hpp"
 
-
-
-
 class view_lenz
 {
   private :
@@ -23,7 +20,6 @@ class view_lenz
   float Zoom =45.0f;
   float mouse_sesitivity =0.1f;
 
-
   float feild_of_view;
   float near_plane;
   float far_plane;
@@ -38,8 +34,6 @@ class view_lenz
   {
     view = glm::lookAt(lenz_pos,lenz_pos+lenz_front,lenz_up);
   }
-
-
 
   void update_lenz()
   {
@@ -160,13 +154,15 @@ class view_lenz
 
   void set_postion();
 
-
   void set_feild_of_view(float fov)
   {
     feild_of_view=fov;
   }
 
-  float aspect_ratio_cal();
+  inline float aspect_ratio_cal()
+  {
+    return view_aspec_ratio;
+  }
 
   glm::mat4 return_orientation() const
   {
@@ -191,7 +187,6 @@ class view_lenz
                                             view_aspec_ratio, near_plane, far_plane);
    return Projection;
   }
-
 
     /*glm::vec3 lenz_right()
     {

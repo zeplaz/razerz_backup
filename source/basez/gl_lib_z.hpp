@@ -215,17 +215,21 @@ enum class Shader_Program : unsigned int
 
 enum SHDtype_index : uint8_t
 {
-  SHD_BASICA02_VERTEX  = 6,
-  SHD_BASICA01_VERTEX  = 4,
-  SHD_BASIC_FRAG       = 5,
+  SHD_BASICA02_VERTEX   = 6,
+  SHD_BASICA01_VERTEX   = 4,
+  SHD_BASIC_FRAG        = 5,
 
-  SHD_LIGHTA1_VERTEX   = 7,
-  SHD_LIGHTA1_FRAG     = 8,
+  SHD_LIGHTA1_VERTEX    = 7,
+  SHD_LIGHTA1_FRAG      = 8,
 
-  SHD_ANIM_VERTEX      = 9,
-  SHD_AMIN_FRAG        = 10,
-  SHD_GLYPH1_VERTEX    = 11,
-  SHD_GLYPH1_FRAG      = 12
+  SHD_ANIM_VERTEX       = 9,
+  SHD_AMIN_FRAG         = 10,
+  SHD_GLYPH1_VERTEX     = 11,
+  SHD_GLYPH1_FRAG       = 12,
+
+  SHD_PARTIC_A_COMPUTE  = 13,
+  SHD_PARTIC_VIZ_VERTEX = 14,
+  SHD_PARTIC_VIZ_FRAG   = 15
 };
 
 enum Lighting : bool

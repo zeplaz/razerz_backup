@@ -1,8 +1,0 @@
-digraph "GG" {
-node [
-  fontsize = "12"
-];
-    "node4" [ label="cmdz" shape="diamond"];
-    "node3" [ label="text_render" shape="house"];
-    "node3" -> "node4" // cmdz -> text_render
-}

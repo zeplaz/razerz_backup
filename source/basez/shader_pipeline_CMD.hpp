@@ -2,19 +2,6 @@
 #include "shader_parser.hpp"
 
 
-
-
-
-/*
-  template<class...Ts>
-  void add_shaders_to_pipeline(Shader_Pipeline to_set_pipe, Ts const&... inshader_pac)
-  {
-        ,;
-
-      (()),...);
-  }*/
-
-
   class gl_shader_t
   {
     private :
@@ -27,12 +14,12 @@
     GLuint program_ID = 0;
     int Global_shader_ID = 0;
     std::unordered_map<std::string,GLuint> uniform_loc_map;
-    //const_iterator
 
     bool create_link_program(std::vector<int>& to_attach_shaders);
     void create_shader(shader_type shad_type, int s_index);
     void setup_shader_code(shader_tuple_type* in_shader_tuple);
     void load_complie(int map_index);
+    GLuint return_uniform(std::string name);
 
     shader_type get_contaned_shdertypes()
     {
@@ -57,18 +44,6 @@
     {
       uniform_loc_map.insert(std::make_pair(name,uniform_loc));
     }
-     GLuint return_uniform(std::string name)
-    {
-      auto shearcher = uniform_loc_map.find(name);
-      if(shearcher!=uniform_loc_map.end())
-      {
-        return shearcher->second;
-      }
-      else{
-        std::cerr <<"funtimez uniform not found goina cazedoom!";
-        return 254;
-      }
-    }
 
      inline void test_flags()
     {
@@ -82,12 +57,20 @@
     }
 
   };
+  /*
+    template<class...Ts>
+    void add_shaders_to_pipeline(Shader_Pipeline to_set_pipe, Ts const&... inshader_pac)
+    {
+          ,;
 
+        (()),...);
+    }*/
 
   class shader_pipeline_CMD
   {
     std::map<unsigned int,gl_shader_t*> master_program_multimap;
     std::unordered_map<Shader_Pipeline,GLuint> Pipline_map;
+
     //std::map<,std::vector<gl_shader_t*>>
 
     void add_program_masterlist(unsigned int index,gl_shader_t* shdr_prgm)
@@ -119,6 +102,10 @@
     void use_pipline(Shader_Pipeline to_use_prgm)
     {
       glBindProgramPipeline(Pipline_map.at(to_use_prgm));
+    }
+    GLuint reutun_pipeline_ID(Shader_Pipeline to_use_prgm)
+    {
+      return Pipline_map.at(to_use_prgm);
     }
 
     void link_shader_to_prg_seprable(GLuint in_program)

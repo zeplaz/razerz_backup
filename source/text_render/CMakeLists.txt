@@ -86,8 +86,9 @@ set(COMPILER_FLAGS_DEBUG)
 set(COMPILER_FLAGS_RELASE)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES GNU)
-  list(APPEND CXX_FLAGS "-Wall")
-  list(APPEND CXX_FLAGS_DEBUG "-Wsuggest-final-types" "-Wsuggest-final-methods"
+  list(APPEND CXX_FLAGS "-Wall" "-O0" "-Wsuggest-final-types" "-Wsuggest-final-methods"
+  "-Wsuggest-final-overrride"  "-Wextra" "-Wpedantic" )
+  list(APPEND CXX_FLAGS_DEBUG "-O0" "-Wsuggest-final-types" "-Wsuggest-final-methods"
   "-Wsuggest-final-overrride"  "-Wextra" "-Wpedantic" )
   list(APPEND CXX_FLAGS_RELEASE "-O3" "-Wno-unused")
 endif()
@@ -99,6 +100,27 @@ if(CMAKE_CXX_COMPILER_ID MATCHES clang)
 endif()
 
 target_compile_options(basez PUBLIC
+"$<$<CONFIG:DEBUG>:$(CXX_FLAGS_DEBUG)>"
+"$<$<CONFIG:RELEASE>:$(CXX_FLAGS_RELEASE)>"
+)
+target_compile_options(parserz PUBLIC
+"$<$<CONFIG:DEBUG>:$(CXX_FLAGS_DEBUG)>"
+"$<$<CONFIG:RELEASE>:$(CXX_FLAGS_RELEASE)>"
+)
+target_compile_options(cmdz PUBLIC
+"$<$<CONFIG:DEBUG>:$(CXX_FLAGS_DEBUG)>"
+"$<$<CONFIG:RELEASE>:$(CXX_FLAGS_RELEASE)>"
+)
+target_compile_options(gk_objz PUBLIC
+"$<$<CONFIG:DEBUG>:$(CXX_FLAGS_DEBUG)>"
+"$<$<CONFIG:RELEASE>:$(CXX_FLAGS_RELEASE)>"
+)
+target_compile_options(text_R PUBLIC
+"$<$<CONFIG:DEBUG>:$(CXX_FLAGS_DEBUG)>"
+"$<$<CONFIG:RELEASE>:$(CXX_FLAGS_RELEASE)>"
+)
+
+target_compile_options(3rdparty PUBLIC
 "$<$<CONFIG:DEBUG>:$(CXX_FLAGS_DEBUG)>"
 "$<$<CONFIG:RELEASE>:$(CXX_FLAGS_RELEASE)>"
 )

@@ -60,9 +60,6 @@ void text_render_glyph::init(std::string in_text,std::string in_font, int size,
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-
-    //std::cout << "\n#load_chactor\n";
-
     character char_texture = {
 			texture,
 			glm::ivec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
@@ -154,7 +151,6 @@ void text_render_glyph::draw(gl_shader_t* shadr, GLint width, GLint height)
     glBufferSubData(GL_ARRAY_BUFFER,0,sizeof(text_vertxz),text_vertxz);
 
     //glBindBuffer(GL_ARRAY_BUFFER, 0);
-
 		// Render quad
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 
@@ -181,6 +177,34 @@ void text_overlay::init()
 
 }
 
+void text_overlay::set_used_pipline_ID(GLuint in_progam_pipe)
+{
+ if(!glIsProgramPipeline(in_progam_pipe))
+ {
+   std::cerr << "#ERROR::id is not a existing program pipeline\n";
+ }
+ else {
+ mpropipline_ID =in_progam_pipe;
+ usepipeline = true;
+ }
+}
+
+ void text_overlay::print_text(const char* str)
+ {
+   const char* print_string = str;
+
+   char current_char;
+   char* curret_posdistance =screen_buff+cursor_y*buff_width+cursor_x;
+
+   while (*print_string !=0)
+   {
+     current_char =*print_string++;
+     if(current_char == '\n')
+     {}
+   }
+
+ }
+
 void text_overlay::scroll(int linez)
 {
   const char* src = screen_buff + linez*buff_width;
@@ -197,7 +221,20 @@ void text_overlay::update_text(const char* str,int x, int y)
 }
 void text_overlay::draw()
 {
-  shadr->use_shader();
+  if(usepipeline == true)
+  {
+    glBindProgramPipeline(mpropipline_ID);//is this need? check to see? if query can be done?
+    glUseProgram(0);
+    glActiveShaderProgram(mpropipline_ID,shadr->program_ID);
+
+    //glProgramUniforms()
+    //glProgramMatrix()
+
+
+  }
+  else{
+    shadr->use_shader();
+  }
 
   glBindTextureUnit(0,text_buff);
 
@@ -205,13 +242,9 @@ void text_overlay::draw()
   {
     glTextureSubImage2D(text_buff,0,0,0,buff_width,buff_height,
                         GL_RED_INTEGER,GL_UNSIGNED_BYTE,screen_buff);
-
     need_update =false;
   }
-
-
   glBindTextureUnit(1,font_texture);
-
   glBindVertexArray(VAO_textover);
   glDrawArrays(GL_TRIANGLE_STRIP,0,4);
 

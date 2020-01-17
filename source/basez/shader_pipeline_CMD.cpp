@@ -1,9 +1,21 @@
 #include "shader_pipeline_CMD.hpp"
 
-
 /*
 gl_shader_t FUNCTIONS
 */
+
+GLuint gl_shader_t::return_uniform(std::string name)
+{
+ auto shearcher = uniform_loc_map.find(name);
+ if(shearcher!=uniform_loc_map.end())
+ {
+   return shearcher->second;
+ }
+ else{
+   std::cerr <<"funtimez uniform not found goina cazedoom!";
+   return 254;
+ }
+}
 
 void gl_shader_t::create_shader(shader_type shad_type, int s_index)
 { std::cout <<"creating shader gl\n";
@@ -18,13 +30,22 @@ void gl_shader_t::create_shader(shader_type shad_type, int s_index)
     contained_shaders |=shader_type::VERTEX_SHADER;
   }
 
-  if(shad_type ==shader_type::FRAGMENT_SHADER)
+  else if(shad_type ==shader_type::FRAGMENT_SHADER)
   {
     std::cout << "NEW FRAGMENT SHADER GENREATING\n";
     shader_IDz_map.insert(std::make_pair(s_index,std::make_pair(shader_type::FRAGMENT_SHADER,glCreateShader(GL_FRAGMENT_SHADER))));
     std::cout << "->inserting shaderID intomap::" <<s_index << '\n';
     contained_shaders |=shader_type::FRAGMENT_SHADER;
   }
+
+  else if(shad_type ==shader_type::COMPUTE_SHADER)
+  {
+    std::cout << "NEW COMPUTE SHADER GENREATING\n";
+    shader_IDz_map.insert(std::make_pair(s_index,std::make_pair(shader_type::COMPUTE_SHADER,glCreateShader(GL_COMPUTE_SHADER))));
+    std::cout << "->inserting shaderID intomap::" <<s_index << '\n';
+    contained_shaders |=shader_type::COMPUTE_SHADER;
+  }
+
 }
 
 bool gl_shader_t::create_link_program(std::vector<int>& to_attach_shaders)

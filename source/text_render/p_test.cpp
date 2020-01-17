@@ -12,6 +12,7 @@ float lastFrame = 0.0f;
 void process_input_glfw(GLFWwindow* window);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+bool string_callback = false;
 
 float lastX = MAIN_SCREEN_WIDTH / 2.0f;
 float lastY = MAIN_SCREEN_HIGHT / 2.0f;
@@ -19,20 +20,14 @@ bool firstMouse = true;
 bool is_cursor_captured = false;
 GLint frame_buf_width,frame_buf_hight;
 
-
 view_lenz* prim_lenz =nullptr;
-
 
 /*
 * MAIN!
 */
 
-
-
-
 int main(int argc, char* argv[])
 {
-  
   int errocode;
   GLFWwindow* glfw_window;
 
@@ -68,7 +63,7 @@ int main(int argc, char* argv[])
   shdr_glyph_list.push_back(SHD_GLYPH1_VERTEX);
   shdr_glyph_list.push_back(SHD_GLYPH1_FRAG);
 
-  shader_glyph->create_link_program(shdr_glyph_list);
+  is_complie = shader_glyph->create_link_program(shdr_glyph_list);
   shader_glyph->test_flags();
 
 
@@ -80,11 +75,8 @@ int main(int argc, char* argv[])
 
   std::cout << "##SHADER settup COMPLEATE\n";
 
-
     glm::mat4 Projection(1.f);
     Projection  = prim_lenz->lenz_projection();
-
-
 
      //glEnable(GL_DEPTH_TEST);
      glClearColor(0.2f, 0.0f, 0.1f, 1.0f);
@@ -104,7 +96,6 @@ int main(int argc, char* argv[])
     GLfloat scale = 1.0f;
 
   glphy_render_Maranallo.init(thetext,curr_font,size_64,font_colour,text_pos,scale);
-
 
   text_render_glyph glphy_render_CR;
   glphy_render_CR.get_shader_loc(shader_glyph);
@@ -157,6 +148,16 @@ int main(int argc, char* argv[])
     glfwSwapBuffers(glfw_window);
 
     glfwPollEvents();
+    if( string_callback == true)
+    {
+      string_callback = false;
+      std::string in_string;
+      std::cout <<"set new string?:";
+      std::cin >>in_string;
+      glphy_render_Maranallo.set_text(in_string);
+      std::cout << "\n string set.\n";
+
+    }
 
     }
 
@@ -210,6 +211,12 @@ void process_input_glfw(GLFWwindow* window)
   if(glfwGetKey(window,GLFW_KEY_F1) ==  GLFW_PRESS)
   {
     take_screenshot_to_file(frame_buf_width,frame_buf_hight);
+  }
+
+  if(glfwGetKey(window,GLFW_KEY_F2) ==  GLFW_PRESS)
+  {
+    //
+    string_callback = true;
   }
 
   if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
