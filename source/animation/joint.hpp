@@ -7,7 +7,7 @@
 class skeleton;
 class animated_mesh;
 class Animation;
-class sym_object;
+class sym_object_anim;
 
 class joint
 {

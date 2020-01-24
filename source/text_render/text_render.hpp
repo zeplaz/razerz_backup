@@ -8,6 +8,7 @@ and # CPP-Game-Development-By-Example::https://www.packtpub.com/web-development/
 #include "../basez/gl_lib_z.hpp"
 #include "../basez/shader_pipeline_CMD.hpp"
 #include "../basez/shader_parser.hpp"
+#include "../basez/sym_object.hpp"
 
 #include <map>
 #include <string>
@@ -28,7 +29,7 @@ struct character {
 	GLuint     next_glyph;    // id to next glyph
 };
 
-class text_render_glyph {
+class text_render_glyph : public sym_object{
   private :
   std::string text;
   GLfloat scale;
@@ -63,7 +64,6 @@ class text_render_glyph {
   {
     colour = in_colour;
   }
-
 
 inline void get_shader_loc(gl_shader_t* shadr)
 {

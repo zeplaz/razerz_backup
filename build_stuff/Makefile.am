@@ -1,3 +1,0 @@
-ACLOCAL_AMFLAGS = -I m4 --install
-
-EXTRA_DIST = m4/dummy

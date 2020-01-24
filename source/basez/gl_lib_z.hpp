@@ -154,12 +154,30 @@ struct EnableBitMaskOperators<M_Model_Flag>
 };
 
 
+enum  class Sym_Object_Type : unsigned char
+{
+  OBJ_RENDER_STATIC = 0x02,
+  OBJ_RENDER_ANIMI  = 0x04,
+  TXT_RENDER_GLYPH  = 0x20,
+  PARTICAL_COMP     = 0x40
+};
+template<>
+struct EnableBitMaskOperators<Sym_Object_Type>
+{
+    static const bool enable = true;
+};
+
+
+
 template <typename Enumeration>
 auto as_integer(Enumeration const value)
     -> typename std::underlying_type<Enumeration>::type
 {
     return static_cast<typename std::underlying_type<Enumeration>::type>(value);
 }
+
+
+
 
 
 /*

@@ -120,15 +120,15 @@ int main(int argc, char* argv[])
     tst_orgin.x+= pow(tan(delta_time*delta_time)*sin(delta_time),sin(delta_time))*tan(tst_orgin.x);
     tst_orgin.y+= tan(tst_orgin.y)/sin(tst_orgin.y)*delta_time;
     tst_orgin.z-=((tan(tst_orgin.z)/sin(tst_orgin.z)))*delta_time;
-    if(tst_orgin.x>200||tst_orgin.x<-200)
+    if(tst_orgin.x>138||tst_orgin.x<-138)
     {
       tst_orgin.x = 1;
     }
-    if(tst_orgin.z>200||tst_orgin.z<-200)
+    if(tst_orgin.z>176||tst_orgin.z<-1148)
     {
       tst_orgin.z = 1;
     }
-    if(tst_orgin.y>200||tst_orgin.y<-200)
+    if(tst_orgin.y>138||tst_orgin.y<-138)
     {
       tst_orgin.y = 1;
     }

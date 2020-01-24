@@ -34,48 +34,17 @@ see linker list on compile instructions per unit(update is often in local readme
 ## Folders
 
 ### test_rezultz_et_backupz
-images of tests outpus,
-
-### SUBFOLDERS::test_rezultz
-#### binary_backupz
-example binaries backups as well.
-#### oldcode_backupz
-reivsion control backup of iterations..
-
-#-----------------------------------------------------------------------------#
+images of tests outpus, some binarybackups and other  old code.
 
 ### lib_othr
-just bits of files, and examples and notes
-
-### build_stuff
-likely will be moved, scatchspace for autotools. and cmake etc.
+just bits of files, and examples and notes build tools examples
 
 ### source
-containes the source code for various moduals and programs, and tests in building up engine.
-
-## SUBFOLDERS::source
-
-### basez folder
-files and libraries, both internal and 3rd party. (see readme) used across diffrent moduals/commponets etc
-programs
-
-### animation folder
-building up a test of riged models... under devlopment no tests thus far
-
-### phyziz folder
-future physics commoentz...
-
-### text_render
-two text rendeing methods, overlay(using KTX and a more complex for gui using freetype2)
-
-### shaderglsl folder
-some examples and unspifed shaders
-
-### Ship_testz folder
-first tests in opengl, buffers, test of baisc lighting{kinda broken}, shaders and static model loader, obj files.  (current build has an  unstable fragment shader deadly loop!. plus alot of the files nessary where moved to the "basez" folder to test animation as i did not want lots of duplicates.. however you can move then back {into root or add basez/ to the include paths}and should compile fine. through i am modifying them currently one they are more stable will unify....
+contains the source code for the pars,.. in them various modules, programs, and tests in building up engine.
 
 #### Current complie line:
 (these are not always update check local Readme)
+
 ##### strongly recommend  you USE GNU G++ version 9.2.1
 {clang should work with the makefiles.. see makefiles.note}
 
@@ -84,14 +53,3 @@ cmake files are slowly being added to unit tests. check local folder.
 note the cmakes currently are rather linux based, and tailored for current setup.
 thus, you may need to pass, dependency paths particularity if using the text_render er.
 freetype gives some issues. for windows, idk. mabye? play around.
-
-
-##### for ships {outdated}
-g++ -std=c++17  -Wall -Wextra  main_shpr2_test.cpp   shader_parser.cpp  geometry.cpp opengl_utilityz.cpp geometry_parser.cpp -lSDL2_image -lGL -lglut -lGLEW -lglfw3 -pthread -ldl -lGLU -lGL -lrt -lXrandr -lXxf86vm -lXi -lXinerama -lX11 -lassimp
-
-##### for textrender {use cmake in folder}
-g++ -std=c++17  -Wall -Wextra   p_test.cpp text_render.cpp ../basez/3rdparty/sb7ktx.cpp
-../basez/opengl_utilityz.cpp  ../basez/shader_parser.cpp ../basez/shader_pipeline_CMD.cpp
-
--lSDL2_image -lGL -lglut -lGLEW -lglfw3 -pthread -ldl -lGLU -lGL -lrt -lXrandr
--lXxf86vm -lXi -lXinerama -lX11 -lassimp -I/usr/include/freetype2  -L/usr/local/lib -lfreetype
