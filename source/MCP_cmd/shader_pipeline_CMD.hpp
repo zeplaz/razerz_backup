@@ -1,3 +1,4 @@
+#pragma once
 
 #include "../basez/shader_parser.hpp"
 

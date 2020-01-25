@@ -1,5 +1,5 @@
 
-
+#pragma once
 #include "basez/gl_lib_z.hpp"
 
 

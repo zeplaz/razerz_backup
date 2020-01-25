@@ -23,6 +23,9 @@ int opengl_context_settup();
 
 int run_opengl_setup(GLFWwindow* out_window);
 
+void  capture_frame_buff_avi(GLFWwindow*window,void(*vid_cap_callback)(GLFWwindow*,int,std::string));
+
+
 /*namespace context_callbacks{
 void process_input_glfw(GLFWwindow* window);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);

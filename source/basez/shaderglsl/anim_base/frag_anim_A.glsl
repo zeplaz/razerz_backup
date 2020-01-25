@@ -17,5 +17,5 @@ void main()
 {
      //vec4 texcolor = texture2D(texUnit,coords0);
 
-     fColor = v_colour;
+     fColor = in_vrx.v_colour;
 }

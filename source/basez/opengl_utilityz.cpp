@@ -14,6 +14,22 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     screen_beenresized = true;
 }
 
+void capture_frame_buff_avi(GLFWwindow*window,void(*vid_cap_callback)(GLFWwindow*,int,std::string))
+{
+  int tocap_frame;
+  std::string file_name;
+
+  std::cout<< "\n\n |-Acttivating framebuf to avi-|\n"
+           << "plz enter export_filename:";
+  std::cin >> file_name;
+  std::cout<<  "\n plz enter num of frames:";
+  std::cin >>tocap_frame;
+
+  (*vid_cap_callback)(window,tocap_frame,file_name);
+
+  std::cout<< "\n will gen vide_"<< file_name<< "\n capting framecount::"<<tocap_frame <<'\n';
+
+}
 
 void take_screenshot_to_file(int& frame_buf_width,int& frame_buf_hieght)
 {

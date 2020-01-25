@@ -3,7 +3,7 @@
 #include<chrono>
 
 #include "../basez/gl_lib_z.hpp"
-#include "../basez/shader_pipeline_CMD.hpp"
+#include "../MCP_cmd/shader_pipeline_CMD.hpp"
 #include "../basez/lenz.hpp"
 
 

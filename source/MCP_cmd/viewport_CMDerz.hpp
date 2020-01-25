@@ -1,4 +1,4 @@
-
+#pragma once
 #include "mcp_lib.hpp"
 
 typedef GLfloat Vport_array[4];

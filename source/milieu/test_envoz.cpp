@@ -1,7 +1,10 @@
 
 #include "../basez/opengl_utilityz.hpp"
-#include "partical_env.hpp"
 
+#include "partical_env.hpp"
+#include "../MCP_cmd/feedback_sym.hpp"
+
+#include "../basez/3rdparty/frame_to_video.hpp"
 
 float delta_time = 0.0f;	// time between current frame and last frame
 float lastFrame = 0.0f;
@@ -14,10 +17,16 @@ float lastX = MAIN_SCREEN_WIDTH / 2.0f;
 float lastY = MAIN_SCREEN_HIGHT / 2.0f;
 bool firstMouse = true;
 bool is_cursor_captured = false;
+
 GLint frame_buf_width,frame_buf_hight;
 
 view_lenz* prim_lenz =nullptr;
 
+//opencv capture to AVI REQUERD CALLBACKS
+bool take_frame_video = false;
+void (*vid_cap_callback)(GLFWwindow*,int,std::string);
+
+//auto prt_set_pramz = std::mem_fn(&multiframe_capturer::set_paramz); (multiframe_capturer::set_paramz)
 /*
 * MAIN!
 */
@@ -49,7 +58,11 @@ int main(int argc, char* argv[])
   std::vector<int> shad_comp_list;
   std::vector<int> shad_partic_viz_list;
   bool is_complie = true;
+
+
   std::cout <<"number of shaders in list " << shder_tup_map->size();
+
+    //partical compue sym shadrers
   shader_compute->setup_shader_code(shder_tup_map->at(SHD_PARTIC_A_COMPUTE));
   shad_comp_list.push_back(SHD_PARTIC_A_COMPUTE);
 
@@ -70,6 +83,9 @@ int main(int argc, char* argv[])
   is_complie = shad_partc_viz->create_link_program(shad_partic_viz_list);
   shad_partc_viz->test_flags();
 
+  //END SHADERS FOR COMPUTER PARTICALS
+
+
   if(is_complie == false)
   {
     std::cerr <<"ERROR partical visualz COMPLIE FAILD\n";
@@ -87,6 +103,12 @@ int main(int argc, char* argv[])
   comp_part_fire.init();
 
   glClearColor(0.2f, 0.0f, 0.1f, 1.0f);
+
+
+  multiframe_capturer mf_c;
+  vid_cap_callback = &multiframe_capturer::set_paramz;
+  //vid_cap_callback(mf_c,);//&;
+//  mf_c.set_paramz(glfw_window,250);
 
   std::cout <<"#####entering main loop setup compleate;\n \n";
 
@@ -106,9 +128,20 @@ int main(int argc, char* argv[])
     glfwGetFramebufferSize(glfw_window,&frame_buf_width,&frame_buf_hight);
 
     glfwSwapBuffers(glfw_window);
+    if(take_frame_video == true)
+    { bool compleate;
+
+      mf_c.export_framebuff_avi(&compleate);
+      if(compleate ==true)
+      {
+        take_frame_video = false;
+      }
+    }
 
     glfwPollEvents();
     std::cout<< "orgianlorgia::" << '\n'
+
+
     << tst_orgin.x << '\n'
     << tst_orgin.y << '\n'
     << tst_orgin.z << '\n';
@@ -144,9 +177,6 @@ int main(int argc, char* argv[])
 
 return 0;
 }
-
-
-
 
 ///boilplate move to utilitiz
 void mouse_callback(GLFWwindow* window, double xpos, double ypos)
@@ -195,8 +225,8 @@ void process_input_glfw(GLFWwindow* window)
 
   if(glfwGetKey(window,GLFW_KEY_F2) ==  GLFW_PRESS)
   {
-    //
-    //string_callback = true;
+    capture_frame_buff_avi(window,vid_cap_callback);
+    take_frame_video=true;
   }
 
   if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
