@@ -83,14 +83,52 @@ int main(int argc, char* argv[])
   is_complie = shad_partc_viz->create_link_program(shad_partic_viz_list);
   shad_partc_viz->test_flags();
 
+  if(is_complie == false)
+  {
+    std::cerr <<"ERROR  partical computevisualz COMPLIE FAILD\n";
+    exit(-1);
+  }
   //END SHADERS FOR COMPUTER PARTICALS
+
+
+//shaders for geoparical
+gl_shader_t* geo_pass_shader =  new  gl_shader_t();
+std::vector<int> shad_GEOpass_list;
+geo_pass_shader->setup_shader_code(shder_tup_map->at(SHD_PARTIC_B_GEO_VERTEX));
+geo_pass_shader->setup_shader_code(shder_tup_map->at(SHD_PARTIC_B_GEO_FRAG));
+
+shad_GEOpass_list.push_back(SHD_PARTIC_B_GEO_VERTEX);
+shad_GEOpass_list.push_back(SHD_PARTIC_B_GEO_FRAG);
+
+is_complie = geo_pass_shader->create_link_program(shad_GEOpass_list);
+geo_pass_shader->test_flags();
 
 
   if(is_complie == false)
   {
-    std::cerr <<"ERROR partical visualz COMPLIE FAILD\n";
+    std::cerr <<"ERROR GEO partical2 visualzCOMPLIE FAILD\n";
     exit(-1);
   }
+
+  gl_shader_t* sim_pass_shader =  new  gl_shader_t();
+  std::vector<int> shad_SIMpass_list;
+  sim_pass_shader->setup_shader_code(shder_tup_map->at(SHD_PARTIC_B_SIM_VERTEX));
+  sim_pass_shader->setup_shader_code(shder_tup_map->at(SHD_PARTIC_B_SIM_FRAG));
+
+  shad_SIMpass_list.push_back(SHD_PARTIC_B_SIM_VERTEX);
+  shad_SIMpass_list.push_back(SHD_PARTIC_B_SIM_FRAG);
+
+  is_complie = sim_pass_shader->create_link_program(shad_GEOpass_list);
+  sim_pass_shader->test_flags();
+
+
+    if(is_complie == false)
+    {
+      std::cerr <<"ERROR SIM partical2 visualz COMPLIE FAILD\n";
+      exit(-1);
+    }
+
+
 
   std::cout << "##SHADER settup COMPLEATE\n";
 
@@ -104,6 +142,19 @@ int main(int argc, char* argv[])
 
   glClearColor(0.2f, 0.0f, 0.1f, 1.0f);
 
+//tranform feedback testingzone
+feedbacktransform feedback_tranformer;
+
+std::vector<std::string> sim_pass_partical_varyings{"world_space_pos","vs_fs_normal"};
+std::vector<std::string> geo_pass_partical_varyings{"pos_out","velocity_out"};
+
+configure_feedback_pass(&feedback_tranformer,geo_pass_shader->program_ID,&geo_pass_partical_varyings);
+feedback_tranformer.configure_feedback_pass(sim_pass_shader->program_ID,&sim_pass_partical_varyings);
+
+
+/*
+add framecapture modual
+*/
 
   multiframe_capturer mf_c;
   vid_cap_callback = &multiframe_capturer::set_paramz;
