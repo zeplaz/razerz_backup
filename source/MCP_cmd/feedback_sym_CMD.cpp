@@ -1,4 +1,51 @@
-#include "feedback_sym.hpp"
+#include "feedback_sym_CMD.hpp"
+
+
+
+     fbo_factory::operator() (fbo_type in_type,fbo_param_pak& in_fboppak)
+     {
+       switch (in_type)
+          {
+            case fbo_type::VIRTUAL :
+            {
+
+              break;
+            }
+            case fbo_type::FLOATING :
+            {
+
+              break;
+            }
+
+            case fbo_type::MULTI_TEXTURE :
+            {
+
+              break;
+            }
+
+            case fbo_type::MULTI_ATTACHMENT :
+
+            {
+              in_fboppak.attachments_buffs;
+              glGenFramebuffer(GL_FRAMEBUFFER,)
+
+              break;
+            }
+
+            case fbo_type::LAYERED :
+            {
+
+              break;
+            }
+          }
+          if(in_type == fbo_type::MULTI_ATTACHMENT&fbo_type::MULTI_TEXTURE)
+          {
+
+          }
+     }
+
+
+
 
  void feedbacktransform::config_varyings()
  {

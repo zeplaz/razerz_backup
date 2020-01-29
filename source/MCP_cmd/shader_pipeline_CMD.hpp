@@ -67,10 +67,48 @@
         (()),...);
     }*/
 
+    class shader_base :  public sym_object
+    {
+      protected :
+      bool use_pipe;
+    };
+
+
+
+    class shader_default : public shader_base
+    {
+      protected :
+      std::shared_ptr<gl_shader_t>  gl_def_shd;
+
+      public :
+
+      void set_use_pipe()
+        {
+          use_pipe = false;
+        }
+
+      void gen_glshd_def()
+      {
+          std::shared_ptr<gl_shader_t> temp_ptr (new gl_shader_t);
+      }
+    };
+
+      class shader_seprate : public shader_base
+      {
+        protected :
+
+        public :
+      void set_use_pipe()
+        {
+          use_pipe = true;
+        }
+};
+
   class shader_pipeline_CMD
   {
     std::map<unsigned int,gl_shader_t*> master_program_multimap;
     std::unordered_map<Shader_Pipeline,GLuint> Pipline_map;
+
 
     //std::map<,std::vector<gl_shader_t*>>
 
