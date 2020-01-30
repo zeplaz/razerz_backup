@@ -1,6 +1,7 @@
 
-
+#pragma once
 #include <array>
+#include "../basez/lib_lib_z.hpp"
 enum class Phys_Mesh_Type
 {
 NONE,
@@ -19,6 +20,22 @@ STATIC,
 DYNAMIC,
 KINEMATIC
 };
+
+enum VAP_index :GLint
+{
+POS_AB,
+VELO_AB,
+CONNECTERZ
+};
+
+enum Buffer_type{
+  POS_A,
+  POS_B,
+  VELOCITY_A,
+  VELOCITY_B,
+  CONNECTIONS
+};
+
 
 struct material_phys
 {

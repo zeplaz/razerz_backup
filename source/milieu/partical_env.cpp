@@ -1,7 +1,8 @@
 #include "partical_env.hpp"
 
 long comput_partic_sim::frame_count =0;
-void comput_partic_sim::init()
+
+void compute_partic_attracto::init()
 {
   glGenVertexArrays(1, &render_vao);
   glBindVertexArray(render_vao);
@@ -9,21 +10,13 @@ void comput_partic_sim::init()
     set_uniform_loc();
 
     //
-
     //glGenBuffers(1, &orgin_ID);
     //glBindBuffer(GL_UNIFORM_BUFFER, orgin_ID);
     //glBufferData(GL_UNIFORM_BUFFER,sizeof(glm::vec4), glm::value_ptr(orgin), GL_STATIC_COPY);
     //glBindBufferBase(GL_UNIFORM_BUFFER, PARTCL_UNI_BIDN_INDX, orgin_ID);
-
-
-
-
   glGenBuffers(2,p_buffz);
   glBindBuffer(GL_ARRAY_BUFFER,position_buffer);
   glBufferData(GL_ARRAY_BUFFER, PARTICLE_COUNT * sizeof(glm::vec4), NULL, GL_DYNAMIC_COPY);
-
-
-
 
 
 
@@ -77,7 +70,7 @@ glm::vec4 * velocities = (glm::vec4 *)glMapBufferRange(GL_ARRAY_BUFFER,
 
 
 
-void comput_partic_sim::partical_dispaly()
+void compute_partic_attracto::partical_dispaly()
 {
 
   start_ticks  =  static_cast<GLuint>(tick_current_return())-100000;
