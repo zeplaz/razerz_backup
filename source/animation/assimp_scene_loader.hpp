@@ -23,11 +23,13 @@ struct mesh_entity{
     base_vert = 0;
     base_index = 0;
     material_index= INVALID_MATERIAL;
+
   }
   unsigned int num_indecz;
   unsigned int base_vert;
   unsigned int base_index;
   unsigned int material_index;
+
 };
 
 struct vertex_joint_data{
@@ -83,6 +85,7 @@ class animated_mesh_loader{
   std::vector<animated_mesh*>&get_meshes();
   std::vector<animated_mesh> move_meshes();
 
+
   joint* find_joint(std::string name)
   {
     for(size_t i=0; i<joints.size();i++)
@@ -122,7 +125,7 @@ class animated_mesh_loader{
 
 
 
-  void load_mesh(std::string file_name)
+  void load_mesh(std::string file_name,bool manual_texture)
   {
     GLuint vao_msh;
     GLuint buffers[BUFFNUM];
@@ -146,11 +149,11 @@ class animated_mesh_loader{
     {
       glob_inverse_tranz = ai_scene->mRootNode->mTransformation;
       glob_inverse_tranz.Inverse();
-      ret= init_ai_scene(ai_scene,file_name);
+      ret= init_ai_scene(ai_scene,file_name,manual_texture);
     }
   }
 
-  bool init_ai_scene(const aiScene* in_scene,const std::string& file_name)
+  bool init_ai_scene(const aiScene* in_scene,const std::string& file_name,bool& manual_texture)
   {
     mesh_entries.resize(in_scene->mNumMeshes);
     textures_vec.resize(in_scene->mNumMaterials);
@@ -185,6 +188,51 @@ class animated_mesh_loader{
       const aiMesh* paimesh = in_scene->mMeshes[i];
       initmeshz(i,paimesh,pos,normal,text_cord,jointz,indicez);
     }
+    if(manual_texture == false)
+    {
+      if(!assip_materials(in_scene, file_name))
+    {
+      return false;
+    }
+    }
+
   }
+
+  assip_materials(const aiScene* in_scene, const std::string& filename)
+  {
+    std::string::size_type string_index = filename.find_last_of("/");
+    std::string metr_string;
+    if(string_index==std::string::npos)
+    {
+      metr_string = ".";
+    }
+    else if (string_index==0)
+    {
+      metr_string = "/";
+    }
+    else
+    {
+      metr_string = filename.substr(0,string_index);
+    }
+    bool ret = true;
+    for(unsigned int i =0; i<in_scene->mNumMaterials; i++)
+    {
+      const aiMaterial* assip_material = in_scene->mMaterials[i];
+      textures_vec[i]=NULL;
+      if(assip_material->GetTextureCount(aiTextureType_DIFFUSE)>0)
+      {
+        aistring path;
+        if(assip_material->GetTexture(aiTextureType_DIFFUSE, 0, &Path, NULL, NULL, NULL, NULL, NULL) == AI_SUCCESS)
+        {
+          std::string p(path.data);
+          if(p.substr(0,2)==".\\")
+            {
+              
+            }
+
+      }
+    }
+  }
+}
 
 };
