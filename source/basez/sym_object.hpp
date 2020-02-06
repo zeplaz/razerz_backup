@@ -11,6 +11,7 @@ class enum sym_obj_paramz
 {
   FBCSYM_
 }
+
 class sym_object {
 
   protected :
@@ -23,11 +24,11 @@ class sym_object {
   //virtual void initalize()=0;
   //virtual void draw() =0;
   //virtual void update() =0;
-  virtual void config(std::vector<>) = 0;
+  //virtual void config(std::vector<>) = 0;
 
-  void set_id(int in_id =0)
+  inline void set_id(int in_id =NULL)
   {
-    if(in_id = 0)
+    if(in_id = NULL)
     {
       obj_ID = nextobj_id;
       nextobj_id++;
@@ -39,12 +40,12 @@ class sym_object {
   }
 
 
-  void set_type(Sym_Object_Type in_so_t)
+  inline void set_type(Sym_Object_Type in_so_t)
   {
     so_type=in_so_t;
   }
 
-  int get_id()
+  inline int get_id()
   {
     return obj_ID;
   }

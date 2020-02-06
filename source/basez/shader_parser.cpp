@@ -1,28 +1,6 @@
 
 #include "shader_parser.hpp"
 
-constexpr unsigned int str2int(const char* str, int h = 0)
-{
-return !str[h] ? 5381 : (str2int(str, h+1) * 33) ^ str[h];
-}
-
- unsigned int str2int_run(const char* str, int h = 0)
-{
-return !str[h] ? 5381 : (str2int(str, h+1) * 33) ^ str[h];
-}
-
-constexpr unsigned int h_index = str2int("INDEX");
-constexpr unsigned int h_shad_type = str2int("SHADER_TYPE");
-constexpr unsigned int h_file_root = str2int("file_root");
-constexpr unsigned int h_shad_name = str2int("NAME");
-constexpr unsigned int h_shad_title = str2int("shader_glsl");
-
-
-/*
-std::vector<shader_tuple_type*>* return_ptr_shader_TV()
-{
-  return &shader_tuple_vec;
-}*/
 
 shader_tuple_type* return_new_shader_tuple()
 {
@@ -52,8 +30,8 @@ SHADER run PARSE GLOBAL
 
 int run_parse()
 {
-  std::cout <<"running shader parser func\n";
-  std::ifstream shader_config("../basez/shaderglsl/file_list_shader.xml");
+  std::cout <<"\nrunning shader parser func\n";
+  std::ifstream shader_config("../shaderglsl/file_list_shader.xml");
   std::string file_in_string;
   shader_config.seekg(0, std::ios::end);
   file_in_string.reserve(shader_config.tellg());
@@ -81,7 +59,7 @@ std::cout <<"###shderpart3\n";
         }
 
       shader_tuple_type* current_tuple_prt;
-std::cout <<"###shderpart4\n";
+std::cout <<"->###begin sort\n";
 
     for(size_t i =0; i<substingz.size(); i++)
     {

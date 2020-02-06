@@ -3,6 +3,7 @@
 
 #include "animated_mesh.hpp"
 
+#include "texture.hpp"
 
 const int WEIGHTS_PER_VERTEX = 4;
 
@@ -15,6 +16,9 @@ int array_size(T* array)
   return sizeof(array)/sizeof(array[0]);
 //int len = *(&array+1)-array;
 }
+
+
+
 
 struct mesh_entity{
   mesh_entity()
@@ -227,7 +231,8 @@ class animated_mesh_loader{
           std::string p(path.data);
           if(p.substr(0,2)==".\\")
             {
-              
+              p = p.substr(2,p.size()-2);
+
             }
 
       }

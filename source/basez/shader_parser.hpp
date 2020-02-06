@@ -1,10 +1,6 @@
 #pragma once
 
-#include <iostream>
-#include <string>
-#include <regex>
-#include <utility>
-#include <fstream>
+
 #include <algorithm>
 #include <iterator>
 #include <vector>
@@ -12,7 +8,7 @@
 #include <map>
 
 #include "gl_lib_z.hpp"
-
+#include "parserlib.hpp"
 typedef std::tuple<unsigned int,
            shader_type,std::string,std::string> shader_tuple_type;
 

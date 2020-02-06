@@ -1,6 +1,93 @@
 #pragma once
 
 #include "shader_pipeline_CMD.hpp"
+#include "sym_object.hpp"
+
+class texture_file_indexer : public singleton_exd
+{
+ texture_xml_lister t_xml_lister;
+
+  std::unorder_map<int,texture_tup>
+
+
+  registar_texture(int id,texture_tup)
+  {
+    t_xml_lister.
+  }
+
+};
+
+
+struct image2 {
+  int columns,rows,n;
+  unsigned char* image;
+  image2()
+  {
+    columns=0;
+    rows=0;
+  }
+
+  void load(std::string& path,int c, int r, int in_n=0)
+  {
+    columns=c;
+    rows =r;
+    n =in_n;
+    image =  new unsigned char(stbi_load(path.c_str(),&columns,&rows,&n,0));
+    std::cout <<"stbi_loadcompleate\n";
+    }
+
+  unsigned char* data()
+  {
+    return &image[0];
+  }
+
+  void cleanup()
+  {
+    stbi_image_free(image);
+    delete [] image;
+  }
+};
+class texture_2 : public sym_object
+{
+  private :
+  GLenum t_target;
+  GLuint textureObj;
+  std::string t_filename;
+  bool min_map;
+
+
+  public :
+
+  texture_2()
+  {
+    set_id();
+    t_target = NULL;
+    t_filename = '';
+  }
+  void config(GLenum text, const std::string& in_path,int index =NULL, bool in_min_map = false)
+  {
+
+      if(index !=NULL)
+      {
+        set_id(next_t_id);
+      }
+      t_target    = text;
+      t_filename  = in_path;
+      min_map =  in_min_map;
+  }
+
+  void setup()
+  {
+    glGenTextures(1, &textureObj);
+    glBindTexture(t_target, textureObj);
+    glTexImage2D(t_target, 0, GL_RGBA, m_image.columns(), m_image.rows(), 0,
+                  GL_RGBA, GL_UNSIGNED_BYTE, m_blob.data());
+    glTexParameterf(t_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameterf(t_target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glBindTexture(t_target, 0);
+
+  }
+};
 
 
 struct texture_paramz_pak
