@@ -6,6 +6,7 @@
 
 class texture_xml_lister{
 
-  int run_parse();
+  //template<class type>
+  int run_parse(std::unordered_map<int,texture_tup>& out_t_pathmap);
 
 };

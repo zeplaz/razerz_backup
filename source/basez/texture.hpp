@@ -2,21 +2,7 @@
 
 #include "shader_pipeline_CMD.hpp"
 #include "sym_object.hpp"
-#include "parserz/texture_pasrser.hpp"
 
-class texture_file_indexer : public singleton_exd
-{
- texture_xml_lister t_xml_lister;
-
-  std::unorder_map<int,texture_tup>
-
-
-  registar_texture(int id,texture_tup)
-  {
-    t_xml_lister.
-  }
-
-};
 
 
 struct image2 {
