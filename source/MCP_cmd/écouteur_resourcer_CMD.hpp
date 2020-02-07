@@ -1,24 +1,44 @@
 
 
-#include "parserz/texture_pasrser.hpp"
-
-class texture_file_ecouteur : public singleton_exd
+#include "../basez/parserz/texture_pasrser.hpp"
+#include "../basez/texture.hpp"
+class texture_ :
 {
-  texture_xml_lister t_xml_lister;
+//  texture_xml_lister t_xml_lister;
 
-  std::unordered_map<int,texture_tup> texture_path_map;
+
+
+};
+
+  class texture_ecouteur : public singleton_exd
+{
+
+  std::unordered_map<int,texture_2*> texture_map;
+
+  texture_xml_lister t_xml_lister;
 
   void preform_texturexml_scan()
   {
-    int parsSTATUS = t_xml_lister.run_parse(texture_path_map);
+    t_path_map* t_path_m_ptr;
+
+    int parsSTATUS = t_xml_lister.run_parse();
+
+    if(parsSTATUS<0)
+    {
+        std::cerr << "parseerror::" << parsSTATUS << '\n';
+        return;
+    }
+
+     t_path_m_ptr = t_xml_lister.pointer_mapreturn();
+     
 
   }
 
-  void registar_texture_path(int id,texture_tup)
+  int registar_texture()
   {
+    texture_map.insert(std::make_pair())
+  }
 
-    texture_path_map.insert(int id,texture_tup);
 
-   }
 
 };

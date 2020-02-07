@@ -1,6 +1,6 @@
 #pragma once
 
-#include "shader_pipeline_CMD.hpp"
+#include "../MCP_cmd/shader_pipeline_CMD.hpp"
 #include "sym_object.hpp"
 
 
@@ -8,18 +8,11 @@
 struct image2 {
   int columns,rows,n;
   unsigned char* image;
-  image2()
-  {
-    columns=0;
-    rows=0;
-  }
 
-  void load(std::string& path,int c, int r, int in_n=0)
+  void load(std::string& path,int in_n=0)
   {
-    columns=c;
-    rows =r;
-    n =in_n;
-    image =  new unsigned char(stbi_load(path.c_str(),&columns,&rows,&n,0));
+
+    image =  new unsigned char(stbi_load(path.c_str(),&columns,&rows,&n,in_n));
     std::cout <<"stbi_loadcompleate\n";
     }
 

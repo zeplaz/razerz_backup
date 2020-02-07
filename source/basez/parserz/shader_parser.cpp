@@ -23,44 +23,18 @@ void size_of_tuplevec()
 {
   std::cout << "\n of vec size:final" << shader_tuple_map.size() <<'\n';
 }
+
 /*
 SHADER run PARSE GLOBAL
 */
-
-
 int run_parse()
 {
-  std::cout <<"\nrunning shader parser func\n";
-  std::ifstream shader_config("../shaderglsl/file_list_shader.xml");
-  std::string file_in_string;
-  shader_config.seekg(0, std::ios::end);
-  file_in_string.reserve(shader_config.tellg());
-  shader_config.seekg(0, std::ios::beg);
+  std::vector<std::string> substingz = run_xmlobj_parse("../shaderglsl/file_list_shader.xml");
 
-  file_in_string.assign((std::istreambuf_iterator<char>(shader_config)),
-              std::istreambuf_iterator<char>());
-std::cout <<"###shderpart1\n";
-  std::regex rexal( R"#(\s*<\s*(\S+)\s*>\s*(\S+)\s*<\s*/\1\s*>\s*)#");
-  std::vector<std::string> substingz;
-  const std::sregex_token_iterator end;
-  std::vector<int> indexzr{1,2};
+  shader_tuple_type* current_tuple_prt;
 
-std::cout <<"###shderpart2\n";
-  for(std::sregex_token_iterator reg_iter (file_in_string.begin(), file_in_string.end(), rexal, indexzr);
-      reg_iter!=end; ++reg_iter)
-      {
-        substingz.push_back(*reg_iter);
-      }
-std::cout <<"###shderpart3\n";
-  for(std::sregex_token_iterator reg_iter (substingz.at(1).begin(), substingz.at(1).end(), rexal, indexzr);
-        reg_iter!=end; ++reg_iter)
-        {
-            substingz.push_back(*reg_iter);
-        }
-
-      shader_tuple_type* current_tuple_prt;
-std::cout <<"->###begin sort\n";
-
+  std::cout <<"->###begin sort\n";
+//
     for(size_t i =0; i<substingz.size(); i++)
     {
       switch(str2int_run(substingz.at(i).c_str()))
@@ -131,8 +105,40 @@ std::cout <<"->###begin sort\n";
            break;
           }
         }
-
 }
 std::cout << "\n #####shader parser run compleate of vec size:final::" << shader_tuple_map.size() <<'\n' <<'\n';
 return 0;
 }
+/*
+
+std::cout <<"\nrunning shader parser func\n";
+std::ifstream shader_config("../shaderglsl/file_list_shader.xml");
+std::string file_in_string;
+shader_config.seekg(0, std::ios::end);
+file_in_string.reserve(shader_config.tellg());
+shader_config.seekg(0, std::ios::beg);
+
+file_in_string.assign((std::istreambuf_iterator<char>(shader_config)),
+            std::istreambuf_iterator<char>());
+std::cout <<"###shderpart1\n";
+//std::regex rexal( R"#(\s*<\s*(\S+)\s*>\s*(\S+)\s*<\s*///\1\s*>\s*)#");*/
+/*
+std::vector<std::string> substingz;
+const std::sregex_token_iterator end;
+std::vector<int> indexzr{1,2};
+
+std::cout <<"###shderpart2\n";
+for(std::sregex_token_iterator reg_iter (file_in_string.begin(), file_in_string.end(), rexal, indexzr);
+    reg_iter!=end; ++reg_iter)
+    {
+      substingz.push_back(*reg_iter);
+    }
+std::cout <<"###shderpart3\n";
+for(std::sregex_token_iterator reg_iter (substingz.at(1).begin(), substingz.at(1).end(), rexal, indexzr);
+      reg_iter!=end; ++reg_iter)
+      {
+          substingz.push_back(*reg_iter);
+      }
+
+
+*/
