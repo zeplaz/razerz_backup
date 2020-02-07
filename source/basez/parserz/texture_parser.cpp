@@ -6,7 +6,7 @@
   int texture_xml_lister::run_parse()
   {
     std::cout <<"\n#->running textture parser func\n";
-    std::ifstream shader_config("../shaderglsl/file_list_texture.xml");
+    std::ifstream shader_config("../../shaderglsl/file_list_texture.xml");
     std::string file_in_string;
     shader_config.seekg(0, std::ios::end);
     file_in_string.reserve(shader_config.tellg());

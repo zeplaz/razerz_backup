@@ -1,19 +1,7 @@
 #pragma once
 
-#include <iostream>
-#include <iterator>
-#include <string>
-#include <sstream>
-#include <regex>
-#include <utility>
-#include <fstream>
-#include <algorithm>
-#include <tuple>
-#include <vector>
-#include <array>
-#include <memory>
-
-#include "../basez/gl_lib_z.hpp"
+#include "parserlib.hpp"
+#include "../gl_lib_z.hpp"
 
  struct mesh_vertex
 {

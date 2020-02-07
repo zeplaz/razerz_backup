@@ -2,6 +2,7 @@
 
 #include "shader_pipeline_CMD.hpp"
 #include "sym_object.hpp"
+#include "parserz/texture_pasrser.hpp"
 
 class texture_file_indexer : public singleton_exd
 {

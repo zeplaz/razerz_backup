@@ -1,10 +1,24 @@
 
 //#include <iostream>
-#include <string>
-#include <regex>
-#include <utility>
-#include <fstream>
 
+#ifndef PARSERLIB_HPP
+#define PARSERLIB_HPP
+
+#include <regex>
+
+#include <fstream>
+#include <sstream>
+#include <iostream>
+
+#include <utility>
+#include <memory>
+#include <algorithm>
+#include <iterator>
+
+#include <vector>
+#include <array>
+#include <tuple>
+#include <string>
 
 //string int handles
 constexpr unsigned int str2int(const char* str, int h = 0)
@@ -36,7 +50,7 @@ typedef std::tuple<std::string,std::pair<int,int>> texture_tup;
 
 
 
-
+#endif
 /*extra*/
 /*
 std::vector<shader_tuple_type*>* return_ptr_shader_TV()

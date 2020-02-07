@@ -6,8 +6,6 @@
 
 class texture_xml_lister{
 
-
-
   int run_parse();
 
 };
