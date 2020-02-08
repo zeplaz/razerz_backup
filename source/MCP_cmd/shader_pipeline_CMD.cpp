@@ -1,9 +1,11 @@
+
+
 #include "shader_pipeline_CMD.hpp"
 
 /*
 gl_shader_t FUNCTIONS
 */
-
+//
 GLuint gl_shader_t::return_uniform(std::string name)
 {
  auto shearcher = uniform_loc_map.find(name);
@@ -84,9 +86,9 @@ void gl_shader_t::setup_shader_code(shader_tuple_type* in_shader_tuple)
 {
   std::cout << "->Loading shader tuple into shader\n";
 
-  int s_index        = std::get<0>(*in_shader_tuple);
-  shader_type s_type = std::get<1>(*in_shader_tuple);
-  std::string path   = std::get<2>(*in_shader_tuple);
+  int s_index        = std::get<ST_INDEX>(*in_shader_tuple);
+  shader_type s_type = std::get<ST_SHADER_TYPE>(*in_shader_tuple);
+  std::string path   = std::get<ST_FILEPATH>(*in_shader_tuple);
 
   std::ifstream file(path);
   std::string ret = "";

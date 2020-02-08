@@ -2,6 +2,27 @@
 
 #include "parserlib.hpp"
 
+unsigned int index_pars(std::string_view in_substring)
+{
+  std::string parsindx;
+  std::string index_num = in_substring.at(i+1);
+  for(size_t k = 0; k< index_num.size(); k++)
+  {
+    if(index_num[k]=='[')
+    {
+
+      for(int ki = 0; ki <index_num.size()-1; ki++)
+      {
+        if(index_num[k+ki+1] ==']')
+        break;
+
+        parsindx += index_num[k+ki+1];
+      }
+    }
+  }
+   unsigned int out_index = stoul(parsindx);
+   return out_index;
+}
 
   std::vector<std::string> run_xmlobj_parse(std::string& in_xml_path)
   {

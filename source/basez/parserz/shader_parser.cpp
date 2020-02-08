@@ -66,29 +66,29 @@ int run_parse()
           std::cout << "shaderType:::"<< substingz.at(i+1)  <<'\n';
           if (substingz.at(i+1) =="vertex")
           {
-            std::get<1>(*current_tuple_prt) = shader_type::VERTEX_SHADER;
+            std::get<ST_SHADER_TYPE>(*current_tuple_prt) = shader_type::VERTEX_SHADER;
           }
           else if (substingz.at(i+1) =="fragment")
           {
-            std::get<1>(*current_tuple_prt) = shader_type::FRAGMENT_SHADER;
+            std::get<ST_SHADER_TYPE>(*current_tuple_prt) = shader_type::FRAGMENT_SHADER;
           }
           else if (substingz.at(i+1) =="compute")
           {
-            std::get<1>(*current_tuple_prt) = shader_type::COMPUTE_SHADER;
+            std::get<ST_SHADER_TYPE>(*current_tuple_prt) = shader_type::COMPUTE_SHADER;
           }
           break;
         }
         case h_file_root :
          {
            std::cout << "shader_source_loc::"<< substingz.at(i+1) <<'\n';
-          std::get<2>(*current_tuple_prt) = substingz.at(i+1);
+          std::get<ST_FILEPATH>(*current_tuple_prt) = substingz.at(i+1);
           break;
          }
 
          case h_shad_name :
           {
             std::cout << "shadername::"<< substingz.at(i+1) <<'\n';
-           std::get<3>(*current_tuple_prt) = substingz.at(i+1);
+           std::get<ST_NAME>(*current_tuple_prt) = substingz.at(i+1);
            break;
           }
         }

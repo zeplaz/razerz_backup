@@ -1,7 +1,7 @@
 
 #include "gl_lib_z.hpp"
 
-static int nextobj_id =0;
+static unsigned int nextobj_id =0;
 static int num_sym_obj =0;
 
 //when genreated call function to load the dynamic praperters, or via the non base?
@@ -16,7 +16,7 @@ class sym_object {
 
   protected :
 
-  int obj_ID;
+  unsigned int obj_ID;
   Sym_Object_Type so_type;
   //bool use_pipe = false;
 
@@ -45,7 +45,7 @@ class sym_object {
     so_type=in_so_t;
   }
 
-  inline int get_id()
+  inline unsigned int get_id()
   {
     return obj_ID;
   }
