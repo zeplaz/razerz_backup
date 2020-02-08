@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<texture>
-<INDEX>
-[0]
-</INDEX>
-<NAME>
-NAMEHERE
-</NAME>
-<file_root>
-../media/texturez/anim_texturez/
-</file_root>
-</texture>
-
-
 <texture_item>
   <INDEX>
   [1]
@@ -29,8 +16,16 @@ NAMEHERE
   <file_root>
   ../media/texturez/anim_texturez/
   </file_root>
+  <gl_formate>
+  form_grba
+  </gl_formate>
+  <gl_data_type>
+  datat_ubyte
+  </gl_data_type>
+  <gl_inter>
+  inf_rgba
+  </gl_inter>
   <flagz>
     0b0000'0000
   </flagz>
-
 </texture_item>

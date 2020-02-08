@@ -35,12 +35,16 @@ class sym_object {
     }
     else{
       obj_ID=in_id;
+      if(in_id>=nextobj_id)
+      {
+        nextobj_id = in_id+1;
+      }
     }
     num_sym_obj++;
   }
 
 
-  inline void set_type(Sym_Object_Type in_so_t)
+  inline void set_obj_type(Sym_Object_Type in_so_t)
   {
     so_type=in_so_t;
   }

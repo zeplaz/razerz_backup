@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../MCP_cmd/shader_pipeline_CMD.hpp"
+//#include "../MCP_cmd/shader_pipeline_CMD.hpp"
+#include "../gl_lib_z.hpp"
 #include "sym_object.hpp"
-
 
 
 struct image2 {
@@ -34,37 +34,45 @@ class texture_2 : public sym_object
   GLuint textureObj;
   std::string t_filename;
   bool min_map;
-
+  GLenum formate;
 
   public :
 
   texture_2()
   {
-    set_id();
+    //set_id();
     t_target = NULL;
     t_filename = '';
   }
-  void config(GLenum text, const std::string& in_path,int index =NULL, bool in_min_map = false)
+  void config(GLenum text, const std::string& in_path,int index =NULL, bool in_min_map = false, GLenum in_tform= GL_RGBA)
   {
 
-      if(index !=NULL)
+      if(index == NULL)
       {
-        set_id(next_t_id);
+        set_id(NULL);
       }
+      set_id(index);
+      set_obj_type(Sym_Object_Type::TEXTURE_OBJ);
+      
       t_target    = text;
       t_filename  = in_path;
-      min_map =  in_min_map;
+      min_map     =  in_min_map;
+      formate     =  in_tform;
+
   }
 
   void setup()
   {
-    glGenTextures(1, &textureObj);
-    glBindTexture(t_target, textureObj);
-    glTexImage2D(t_target, 0, GL_RGBA, m_image.columns(), m_image.rows(), 0,
-                  GL_RGBA, GL_UNSIGNED_BYTE, m_blob.data());
-    glTexParameterf(t_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameterf(t_target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glBindTexture(t_target, 0);
+    if(t_target == GL_TEXTURE_2D || GL_TEXTURE_1D_ARRAY ||GL_TEXTURE_RECTANGLE)
+    {
+      glGenTextures(1, &textureObj);
+      glBindTexture(t_target, textureObj);
+      glTexImage2D(t_target, 0, GL_RGBA, m_image.columns(), m_image.rows(), 0,
+                    GL_RGBA, GL_UNSIGNED_BYTE, m_blob.data());
+      glTexParameterf(t_target, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+      glTexParameterf(t_target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+      glBindTexture(t_target, 0);
+    }
 
   }
 };

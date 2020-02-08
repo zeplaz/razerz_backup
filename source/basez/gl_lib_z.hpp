@@ -158,8 +158,10 @@ enum  class Sym_Object_Type : unsigned char
 {
   OBJ_RENDER_STATIC = 0x02,
   OBJ_RENDER_ANIMI  = 0x04,
-  TXT_RENDER_GLYPH  = 0x20,
-  PARTICAL_COMP     = 0x40
+  TXT_RENDER_GLYPH  = 0x08,
+  PARTICAL_COMP     = 0x20,
+  TEXTURE_OBJ       = 0x40,
+  SHADER_OBJ        = 0x80
 };
 template<>
 struct EnableBitMaskOperators<Sym_Object_Type>

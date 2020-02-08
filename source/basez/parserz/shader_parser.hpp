@@ -1,15 +1,9 @@
 #pragma once
 
-
-#include <algorithm>
-#include <iterator>
-#include <vector>
-#include <unordered_map>
-#include <map>
-
-#include "gl_lib_z.hpp"
 #include "parserlib.hpp"
+#include "../shader_lib.hpp"
 
+#include <map>
 //static std::vector<shader_tuple_type*> shader_tuple_vec;
 static std::map<unsigned int,shader_tuple_type*> shader_tuple_map;
 

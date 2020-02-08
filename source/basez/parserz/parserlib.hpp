@@ -1,6 +1,4 @@
 
-//#include <iostream>
-
 #ifndef PARSERLIB_HPP
 #define PARSERLIB_HPP
 
@@ -19,6 +17,7 @@
 #include <array>
 #include <tuple>
 #include <string>
+#include <unordered_map>
 
 //string int handles
 constexpr unsigned int str2int(const char* str, int h = 0)
@@ -62,35 +61,22 @@ constexpr unsigned int index = str2int("INDEX");
 constexpr unsigned int flagz = str2int("FLAGZ");
 //forobjz
 constexpr unsigned int item_type = str2int("ITEM_TYPE");
-constexpr unsigned int subtype = str2int("SUB_TYPE")
+constexpr unsigned int subtype   = str2int("SUB_TYPE")
 
 //for shaderz
-constexpr unsigned int h_shad_type = str2int("SHADER_TYPE");
-constexpr unsigned int h_file_root = str2int("file_root");
-constexpr unsigned int h_shad_name = str2int("NAME");
+constexpr unsigned int h_shad_type  = str2int("SHADER_TYPE");
+constexpr unsigned int h_file_root  = str2int("file_root");
+constexpr unsigned int h_shad_name  = str2int("NAME");
 constexpr unsigned int h_shad_title = str2int("shader_glsl");
 
 //for texture
 
-constexpr unsigned int t_name = str2int("NAME");
+constexpr unsigned int t_name      = str2int("NAME");
 constexpr unsigned int t_file_root = str2int("file_root");
+constexpr unsigned int t_formate   = str2int("gl_formate");
+constexpr unsigned int t_data_type = str2int("gl_data_type");
+constexpr unisgned int t_internal  = str2int("gl_inter");
 
-//TEXTURETYPEZ
-
-/*
-xml litreals conversionchart texture Types
-texture1d->GL_TEXTURE_1D
-texture2d -> GL_TEXTURE_2D
-texture3d -> GL_TEXTURE_3D
-texturerec ->GL_TEXTURE_RECTANGLE
-texturebuff ->GL_TEXTURE_BUFFER
-texturecubmap ->GL_TEXTURE_CUBE_MAP
-texture1d_array ->GL_TEXTURE_1D_ARRAY
-texture2d_array ->GL_TEXTURE_2D_ARRAY
-texturecubmap_array->GL_TEXTURE_CUBE_MAP_ARRAY
-texture2d_multi->GL_TEXTURE_2D_MULTISAMPLE
-texture2d_multi_array->GL_TEXTURE_2D_MULTISAMPLE_ARRAY
-*/
 
 /*
 XMLBASEPARSE FUNCTIONz

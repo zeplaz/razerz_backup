@@ -1,8 +1,6 @@
 
-
 #include "../gl_lib_z.hpp"
 #include "parserlib.hpp"
-
 
 shader_tuple_type* new_tt_ptr()
 {
