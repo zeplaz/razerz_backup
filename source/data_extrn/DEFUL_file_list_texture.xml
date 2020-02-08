@@ -13,15 +13,15 @@ NAMEHERE
 </texture>
 
 
-<laod_item>
+<texture_item>
   <INDEX>
   [1]
   </INDEX>
   <ITEM_TYPE>
-  texture
+  texture2d
   </ITEM_TYPE>
   <SUB_TYPE>
-  anima_test
+  ANIM_BASIC
   </SUB_TYPE>
   <NAME>
   anim01_texture0
@@ -33,4 +33,4 @@ NAMEHERE
     0b0000'0000
   </flagz>
 
-</laod_item>
+</texture_item>

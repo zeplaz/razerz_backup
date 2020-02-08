@@ -31,6 +31,8 @@ int run_parse()
 {
   std::vector<std::string> substingz = run_xmlobj_parse("../shaderglsl/file_list_shader.xml");
 
+  std::string_view sub_string_view{substingz.c_str(), substingz.size()};
+
   shader_tuple_type* current_tuple_prt;
 
   std::cout <<"->###begin sort\n";
@@ -46,32 +48,17 @@ int run_parse()
           break;
         }
         case h_index :
-        {  current_tuple_prt = return_new_shader_tuple();
-
-           std::string parsindx;
-           std::string index_num = substingz.at(i+1);
-           for(size_t k = 0; k< index_num.size(); k++)
-           {
-             if(index_num[k]=='[')
-             {
-
-               for(int ki = 0; ki <index_num.size()-1; ki++)
-               {
-                 if(index_num[k+ki+1] ==']')
-                 break;
-
-                 parsindx += index_num[k+ki+1];
-               }
-             }
-           }
-            unsigned int  temp_index = stoul(parsindx);
+        {
+          current_tuple_prt = return_new_shader_tuple();
+          unsigned int  temp_index = index_pars(sub_string_view);
             //std::get<0>(*current_tuple_prt) =temp_index;
-            std::cout << "shaderrawindex::"<< substingz.at(i+1) <<'\n';
-            std::cout << "shaderindexnum::"<< temp_index <<'\n';
-            std::get<0>(*current_tuple_prt) = temp_index;
-            shader_tuple_map.insert(std::pair<unsigned int,shader_tuple_type*>(temp_index,current_tuple_prt));
-            //
-            break;
+
+           std::cout << "shaderrawindex::"<< substingz.at(i+1) <<'\n';
+           std::cout << "shaderindexnum::"<< temp_index <<'\n';
+           std::get<ST_INDEX>(*current_tuple_prt) = temp_index;
+           shader_tuple_map.insert(std::pair<unsigned int,shader_tuple_type*>(temp_index,current_tuple_prt));
+
+          break;
         }
 
         case h_shad_type :
@@ -109,6 +96,28 @@ int run_parse()
 std::cout << "\n #####shader parser run compleate of vec size:final::" << shader_tuple_map.size() <<'\n' <<'\n';
 return 0;
 }
+
+
+/*
+
+           std::string parsindx;
+           std::string index_num = substingz.at(i+1);
+           for(size_t k = 0; k< index_num.size(); k++)
+           {
+             if(index_num[k]=='[')
+             {
+
+               for(int ki = 0; ki <index_num.size()-1; ki++)
+               {
+                 if(index_num[k+ki+1] ==']')
+                 break;
+
+                 parsindx += index_num[k+ki+1];
+               }
+             }
+           }
+            unsigned int  temp_index = stoul(parsindx);
+*/
 /*
 
 std::cout <<"\nrunning shader parser func\n";

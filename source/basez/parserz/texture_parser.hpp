@@ -3,21 +3,20 @@
 #include "../gl_lib_z.hpp"
 #include "parserlib.hpp"
 
-typedef std::unordered_map<int,texture_tup> t_path_map;
 
 class texture_xml_lister{
 
-  t_path_map texture_path_map;
+  tt_map texture_tupl_map;
   //template<class type>
 
-  bool load_run(std::string in_pathxml ="../data_extrn/texture.xml");
+  int load_run(std::string in_pathxml);
 
-  int  registar_texture_path(int id,texture_tup)
+  inline int  registar_texture_tupl(int id,texture_tupl)
   {
     texture_path_map.insert(std::make_pair(id,texture_tup));
   }
 
-  t_path_map* pointer_mapreturn()
+  inline tt_map* pointer_mapreturn()
   {
     return &texture_path_map;
   }
