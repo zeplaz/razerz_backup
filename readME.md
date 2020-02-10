@@ -1,7 +1,9 @@
 
-# razerz
-testbed of an openGL graphics rendering engine.
+# razerz_backup0.00.1
 
+->NOTE THIS IS USED AS DEPOSTORY OF BACKUPS AND EXAMPLES> CONNTUNEATION ON NEW REPOSITORY THAT HANDLES ACTIVE DELVOPMENT BRANCHES. testbed of an openGL graphics rendering engine.
+
+{TEXT IS OUTDATED>}
 many small unit experiments and tests, building up to a larger program, you can find, smaller units, with their tests, (however restructuring has resulted in some broken includes)
 ... nevertheless, projects should slowly move to unify the parts.
  to find the meat, go to the source folder and check the readmes.
