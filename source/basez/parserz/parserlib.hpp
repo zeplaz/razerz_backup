@@ -30,16 +30,25 @@ return !str[h] ? 5381 : (str2int(str, h+1) * 33) ^ str[h];
 return !str[h] ? 5381 : (str2int(str, h+1) * 33) ^ str[h];
 }
 
-//enumz
-enum texture_touple_pos{
-  TT_INDEX,
-  TT_SUB_TYPE,
-  TT_NAME,
-  TT_FILEPATH,
-  TT_FLAGZ
+//enumz for parserindexpos
+
+enum Texture_Touple_pos{
+  TT_INDEX, //uint
+  TEXIMG_PARAMZ, //teximage2d_parmz
+  TT_NAME,  //string
+  TT_FILEPATH, //string
+  TT_FLAGZ //0b00000etyc??
 };
 
-enum shader_touple_pos{
+enum Teximg2d_Paramz_pos
+{
+TI2D_TARGET,       //GLenum
+TI2D_INTRL_FORMAT, //GLint
+TI2D_PIX_FORMATE, //GLenum
+TI2D_PIX_DATATYPE //GLenum
+};
+
+enum Shader_Touple_pos{
   ST_INDEX,
   ST_SHADER_TYPE,
   ST_NAME,
@@ -47,36 +56,44 @@ enum shader_touple_pos{
 };
 
 //typedefz
-typedef std::tuple<unsigned int,GLenum,std::string,std::string,unsigned char>> texture_tupl;
-typedef std::tuple<unsigned int,shader_type,std::string,std::string> shader_tuple_type;
+
+//target,internalformate,pixel data format,textture_type
+typedef std::tuple<GLenum,Glint,GLenum,GLenum> teximage2d_parmz;
+//index,teximage2d_parmz,name,filepath,flagz
+typedef std::tuple<unsigned int,teximage2d_parmz,std::string,std::string,unsigned char>> texture_tupl;
+//index,shader_type,name,filepath
+typedef std::tuple<unsigned int,shader_type,std::string,std::string> shader_tupl;
+
+//MAPS typedefed
 typedef std::unordered_map<unsigned int,texture_tup> tt_map;
 
-constexpr texture_tupl NULL_TT = std::make_tuple(0,0,"","",0);
+//NULLtouples
+constexpr inteximage2d NULL_TI2D = std::make_tuple(0,0,0,0);
+constexpr texture_tupl NULL_TT   = std::make_tuple(0,NULL_TI2D,"","",0);
+
 /*
-DEFINEZ FOR PASEERXML->to uint
+DEFINEZ FOR Resource Types ->
+to uint for parsing switch
 */
 
 //forall
 constexpr unsigned int index = str2int("INDEX");
+constexpr unsigned int name  = str2int("NAME");
+constexpr unsigned int file_root = str2int("file_root");
 constexpr unsigned int flagz = str2int("FLAGZ");
+
 //forobjz
 constexpr unsigned int item_type = str2int("ITEM_TYPE");
 constexpr unsigned int subtype   = str2int("SUB_TYPE")
 
 //for shaderz
 constexpr unsigned int h_shad_type  = str2int("SHADER_TYPE");
-constexpr unsigned int h_file_root  = str2int("file_root");
-constexpr unsigned int h_shad_name  = str2int("NAME");
 constexpr unsigned int h_shad_title = str2int("shader_glsl");
 
 //for texture
-
-constexpr unsigned int t_name      = str2int("NAME");
-constexpr unsigned int t_file_root = str2int("file_root");
 constexpr unsigned int t_formate   = str2int("gl_formate");
 constexpr unsigned int t_data_type = str2int("gl_data_type");
 constexpr unisgned int t_internal  = str2int("gl_inter");
-
 
 /*
 XMLBASEPARSE FUNCTIONz

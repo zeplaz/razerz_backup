@@ -4,7 +4,7 @@
 xml litreals conversionchart
 */
 
-// texture Types
+// texture target
 /*
 texture1d             ->GL_TEXTURE_1D
 texture2d             ->GL_TEXTURE_2D
@@ -17,6 +17,18 @@ texture2d_array       ->GL_TEXTURE_2D_ARRAY
 texturecubmap_array   ->GL_TEXTURE_CUBE_MAP_ARRAY
 texture2d_multi       ->GL_TEXTURE_2D_MULTISAMPLE
 texture2d_multi_array ->GL_TEXTURE_2D_MULTISAMPLE_ARRAY
+*/
+
+// internalformat  table
+/*
+inf_depth     ->GL_DEPTH_COMPONENT
+inf_depth+sten ->GL_DEPTH_STENCIL
+inf_rgba ->GL_RGBA
+inf_red ->GL_red
+inf_srgba8 ->GL_SRGB8_ALPHA8
+inf_ rgba16-> GL_RGBA16
+inf_rgba32f ->GL_RGBA32F
+inf_inf_rgba16f ->GL_RGBA16F
 */
 
 // formate:z
@@ -37,16 +49,4 @@ texture2d_multi_array ->GL_TEXTURE_2D_MULTISAMPLE_ARRAY
   datat_int     ->GL_INT,
   datat_hfloat  ->GL_HALF_FLOAT,
   datat_float   ->GL_FLOAT,
-*/
-
-// internalformat  table
-/*
-inf_depth     ->GL_DEPTH_COMPONENT
-inf_depth+sten ->GL_DEPTH_STENCIL
-inf_rgba ->GL_RGBA
-inf_red ->GL_red
-inf_srgba8 ->GL_SRGB8_ALPHA8
-inf_ rgba16-> GL_RGBA16
-inf_rgba32f ->GL_RGBA32F
-inf_inf_rgba16f ->GL_RGBA16F
 */

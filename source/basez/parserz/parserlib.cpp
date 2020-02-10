@@ -2,10 +2,10 @@
 
 #include "parserlib.hpp"
 
-unsigned int index_pars(std::string_view in_substring)
+unsigned int index_pars(std::string& in_substring,int i)
 {
   std::string parsindx;
-  std::string index_num = in_substring.at(i+1);
+  std::string index_num = in_substring;
   for(size_t k = 0; k< index_num.size(); k++)
   {
     if(index_num[k]=='[')

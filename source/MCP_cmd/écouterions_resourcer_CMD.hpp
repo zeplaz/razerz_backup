@@ -9,6 +9,7 @@
 #include "mcp_lib.hpp"
 
 
+
   class texture_ecouter : public singleton_exd
 {
   protected :
@@ -50,14 +51,14 @@ struct path_handler{
   std::unordered_map<unisgned int,std::string_view>
 };
 
-  struct rez_cmd
+  struct rez_mgmt
   {
     public :
     texture_ecouter texture_ecouterait;
-    shader_ecouter  shader_ecouterait
+    shader_ecouter  shader_ecouterait;
 
     shader_pipeline_CMD shpipe_cmd;
-    texture_xml_lister t_xml_lister;
+    texture_xml_parser t_xml_parser;
 
 
 
@@ -81,7 +82,7 @@ struct path_handler{
 
     void gen_texture_from_tt(t_path_map* t_path_m_ptr)
     {
-      
+
     }
 
   };

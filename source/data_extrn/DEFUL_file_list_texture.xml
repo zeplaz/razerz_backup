@@ -4,18 +4,18 @@
   <INDEX>
   [1]
   </INDEX>
-  <ITEM_TYPE>
-  texture2d
-  </ITEM_TYPE>
-  <SUB_TYPE>
-  ANIM_BASIC
-  </SUB_TYPE>
   <NAME>
   anim01_texture0
   </NAME>
   <file_root>
   ../media/texturez/anim_texturez/
   </file_root>
+  <ITEM_TYPE>
+  texture
+  </ITEM_TYPE>
+  <SUB_TYPE>
+  texture2d
+  </SUB_TYPE>
   <gl_formate>
   form_grba
   </gl_formate>
