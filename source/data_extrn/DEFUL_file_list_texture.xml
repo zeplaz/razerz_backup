@@ -4,27 +4,29 @@
   <INDEX>
   [1]
   </INDEX>
-  <NAME>
-  anim01_texture0
-  </NAME>
-  <file_root>
-  ../media/texturez/anim_texturez/
-  </file_root>
   <ITEM_TYPE>
   texture
   </ITEM_TYPE>
   <SUB_TYPE>
   texture2d
   </SUB_TYPE>
-  <gl_formate>
-  form_grba
-  </gl_formate>
-  <gl_data_type>
-  datat_ubyte
-  </gl_data_type>
-  <gl_inter>
+  <gl_colour_components>
   inf_rgba
-  </gl_inter>
+  </gl_colour_components>
+  <gl_formate_pix>
+  form_grba
+  </gl_formate_pix>
+  <gl_pixdata_type>
+  datat_ubyte
+  </gl_pixdata_type>
+
+  <NAME>
+  anim01_texture0
+  </NAME>
+  <file_root>
+  ../media/texturez/anim_texturez/
+  </file_root>
+
   <flagz>
     0b0000'0000
   </flagz>

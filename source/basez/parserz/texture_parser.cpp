@@ -1,60 +1,111 @@
 
 #include "texture_parser.hpp"
 
-   bool xml_parser::load_run(std::string in_pathxml)
-   {
-      std::vector<std::string> substingz = run_xmlobj_parse(in_pathxml);
-      {substingz.c_str(), substingz.size()};
 
+int texture_xml_parser::item_selection(std::string& in_obj_type,std::vector<std::string>& in_substingz,unsigned int index,int str_pos)
+{
+  texture_tupl* curr_text_tup;
+  curr_text_tup = new_tt_ptr();
 
-      std::cout <<"->###begin sort\n";
-      unsigned int current_0jk_index;
+  texture_tupl_map.insert(std::make_pair(index,curr_text_tup));
 
-      for(size_t i =0; i<substingz.size(); i++)
+  for(int i = str_pos; i<in_substring.size();i++)
+  {
+    switch(str2int_run(in_substring.at(i).c_str()))
+    {
+      case subtype :
+      {
+        if(in_substingz.at(i+1) == "texture2d")
         {
-          switch(str2int_run(substingz.at(i).c_str()))
-            {
-              case index :
-                {
-                  //std::string_view sub_string_view {substingz.at(i+1).c_str(),
-                  current_0jk_index = index_pars(substingz.at(i),i);
-                  std::cout << "ttrawindex::"<< substingz.at(i+1) <<'\n';
-                  std::cout << "ttindexnum::"<< current_0jk_index <<'\n';
+          teximage2d_parmz* ti2d_prmz  =&std::get<TEXIMG_PARAMZ>(*curr_text_tup);
+          std::get<TI2D_TARGET>(*ti2d_prmz) = subtype_toGLenumtexture(in_substingz.at(i+1));
+          //gen_teximage(in_substingz,i);
+        }
+        break;
+      }
 
-                break;
-                }
+      //not in right place!!
+      case t_colour_comp :
+      {
+        std::get<TI2D_COLOUR_COMP>(*ti2d_prmz) = colour_comp_toGLint(in_substingz.at(i+1));
+        break;
+      }
 
-              case item_type :
-                {
-                  if(substingz.at(i+1) =="texture")
-                  {
-                  i  = gen_teximage();
-                  }
-                  gen_teximage_paramz()
-                  //inteximage2d* curr_teximg =
-                break;
-                }
+      case t_pix_formate :
+        {
+          std::get<TI2D_PIX_FORMATE>(*ti2d_prmz)  =
+        break;
+        }
+        case t_pixdata_type :
+        {
+          std::get<TI2D_PIX_DATATYPE>(*ti2d_prmz) =
+        break;
+        }
+
+      case name :
+        {
+         std::get<TT_NAME>(*curr_text_tup) = in_substingz.at(i+1);
+        break;
+        }
+
+      case file_root :
+        {
+         std::get<TT_FILEPATH>(*curr_text_tup) = in_substingz.at(i+1);
+        break;
+        }
+
+      case flagz :
+        {
+          std::get<TT_FLAGZ>(*curr_text_tup) = (unsigned char)in_substingz.at(i+1);
+          return i;
+        break;
+        }
+      }//endswitch
+    }//end//for
+}
 
 
-              case t_name :
-                {
-                  std::get<TT_NAME>(*curr_text_tup) = substingz.at(i+1);
-                break;
-                }
+int texture_xml_parser::gen_teximage(std::string& in_substring,int i)
+{
+  //teximage2d_parmz* current_ti2d_parmz = std::get<TEXIMG_PARAMZ>(*in_tt);
 
-              case t_file_root :
-                {
-                  std::get<TT_FILEPATH>(*curr_text_tup) = substingz.at(i+1);
-                break;
-                }
+}
 
-              case flagz :
-                {
-                  std::get<TT_FLAGZ>(*curr_text_tup) = (unsigned char)substingz.at(i+1);
-                break;
-                }
-          }//endswitch
-        }//endfor
+GLint colour_comp_toGLint(const std::string& in_substring)
+{
+  if(in_substring=="inf_depth")
+  {
+    return GL_DEPTH_COMPONENT;
+  }
+  if(in_substring=="inf_depth+sten")
+  {
+    return GL_DEPTH_STENCIL;
+  }
+  if(in_substring=="inf_rgba")
+  {
+    return GL_RGBA;
+  }
+  if(in_substring=="inf_red")
+  {
+    return GL_RED;
+  }
+  if(in_substring=="inf_srgba8")
+  {
+    return GL_SRGB8_ALPHA8;
+  }
+  if(in_substring=="inf_rgba16")
+  {
+    return GL_RGBA16;
+  }
+  if(in_substring=="inf_rgba32f")
+  {
+    return GL_RGBA32F;
+  }
+
+  if(in_substring=="inf_inf_rgba16f")
+  {
+    return GL_RGBA16F;
+  }
 }
 
 GLEnum texture_xml_parser::subtype_toGLenumtexture(const std::string& in_substring)

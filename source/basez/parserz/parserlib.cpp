@@ -53,6 +53,34 @@ unsigned int index_pars(std::string& in_substring,int i)
         return substingz;
   }
 
+  bool xml_parser::load_run(std::string in_pathxml)
+  {
+     std::vector<std::string> substingz = run_xmlobj_parse(in_pathxml);
+
+     std::cout <<"->###begin sort\n";
+     unsigned int current_0jk_index;
+
+     for(size_t i =0; i<substingz.size(); i++)
+       {
+        switch(str2int_run(substingz.at(i).c_str()))
+         {
+          case index :
+            {
+             current_0jk_index = index_pars(substingz.at(i),i);
+             std::cout << "ttrawindex::"<< substingz.at(i+1) <<'\n';
+             std::cout << "ttindexnum::"<< current_0jk_index <<'\n';
+            break;
+             }
+
+           case item_type :
+             {
+               i = item_selection(substingz.at(i+1),substingz,current_0jk_index,i);
+             break;
+             }
+         }//endswitch
+       }//endfor
+  }
+
 
 /*extra*/
 /*

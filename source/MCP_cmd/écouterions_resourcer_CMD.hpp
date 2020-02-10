@@ -1,6 +1,4 @@
 
-
-
 #pragma once
 //écoute 	écoutera 	écoutait //écouterait /écoutât
 

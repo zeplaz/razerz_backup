@@ -14,17 +14,16 @@ texture_tupl* new_tt_ptr()
 }
 
 
-
-class xml_parser{
-
-public :
-int load_run(std::string in_pathxml);
-GLEnum subtype_toGLenumtexture(const std::string& in_substring);
-
-};
 class texture_xml_parser :public : xml_parser{
 
+  protected :
   tt_map texture_tupl_map;
+
+  public :
+  GLEnum subtype_toGLenumtex_target(const std::string& in_substring);
+  int item_selection(std::string& in_obj_type,std::vector<std::string>& in_substingz);
+
+  int gen_teximage(std::string& in_substring,unsigned int index,int str_pos);
 
   inline int  registar_texture_tupl(unsigned int id,texture_tupl)
   {
@@ -34,39 +33,6 @@ class texture_xml_parser :public : xml_parser{
   inline tt_map* pointer_mapreturn()
   {
     return &texture_path_map;
-  }
-
-  int gen_teximage(std::string& in_substring,unsigned int index,int str_pos)
-  {
-    texture_tupl* curr_text_tup;
-
-    curr_text_tup = new_tt_ptr();
-    std::get<TT_INDEX>(*curr_text_tup) = index;
-
-    teximage2d_parmz* current_ti2d_parmz = std::get<TEXIMG_PARAMZ>(*in_tt);
-
-    texture_tupl_map.insert(std::make_pair(index,curr_text_tup));
-
-    for(int i = str_pos; i<in_substring.size();i++)
-    {
-      switch(str2int_run(in_substring.at(i).c_str()))
-      {
-        case subtype :
-        {
-          std::get<TT_SUB_TYPE>(*curr_text_tup) = subtype_toGLenumtexture(substingz.at(i+1));
-          break;
-        }
-
-        }
-        case :
-        {
-          break;
-        }
-      }
-
-
-    }
-
   }
 
   void remove_tt(unisgned int id)

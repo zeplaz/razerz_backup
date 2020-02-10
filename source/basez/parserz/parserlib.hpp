@@ -33,17 +33,17 @@ return !str[h] ? 5381 : (str2int(str, h+1) * 33) ^ str[h];
 //enumz for parserindexpos
 
 enum Texture_Touple_pos{
-  TT_INDEX, //uint
+  //TT_INDEX,      //uint
   TEXIMG_PARAMZ, //teximage2d_parmz
-  TT_NAME,  //string
-  TT_FILEPATH, //string
-  TT_FLAGZ //0b00000etyc??
+  TT_NAME,       //string
+  TT_FILEPATH,   //string
+  TT_FLAGZ       //0b00000etyc??
 };
 
 enum Teximg2d_Paramz_pos
 {
 TI2D_TARGET,       //GLenum
-TI2D_INTRL_FORMAT, //GLint
+TI2D_COLOUR_COMP, //GLint
 TI2D_PIX_FORMATE, //GLenum
 TI2D_PIX_DATATYPE //GLenum
 };
@@ -59,8 +59,8 @@ enum Shader_Touple_pos{
 
 //target,internalformate,pixel data format,textture_type
 typedef std::tuple<GLenum,Glint,GLenum,GLenum> teximage2d_parmz;
-//index,teximage2d_parmz,name,filepath,flagz
-typedef std::tuple<unsigned int,teximage2d_parmz,std::string,std::string,unsigned char>> texture_tupl;
+//,teximage2d_parmz,name,filepath,flagz
+typedef std::tuple<teximage2d_parmz,std::string,std::string,unsigned char>> texture_tupl;
 //index,shader_type,name,filepath
 typedef std::tuple<unsigned int,shader_type,std::string,std::string> shader_tupl;
 
@@ -91,14 +91,22 @@ constexpr unsigned int h_shad_type  = str2int("SHADER_TYPE");
 constexpr unsigned int h_shad_title = str2int("shader_glsl");
 
 //for texture
-constexpr unsigned int t_formate   = str2int("gl_formate");
-constexpr unsigned int t_data_type = str2int("gl_data_type");
-constexpr unisgned int t_internal  = str2int("gl_inter");
+constexpr unsigned int t_colour_comp   = str2int("gl_colour_components");
+constexpr unsigned int t_pix_formate   = str2int("gl_formate_pix");
+constexpr unsigned int t_pixdata_type  = str2int("gl_pixdata_type");
 
 /*
 XMLBASEPARSE FUNCTIONz
 */
   std::vector<std::string> run_xmlobj_parse(std::string& in_xml_path);
   unsigned int index_pars(std::string_view in_substring);
+
+  class xml_parser{
+
+    public :
+    int load_run(std::string in_pathxml);
+    virtual int item_selection(std::string& in_obj_type,std::vector<std::string>& in_substingz) = 0;
+
+    };
 
 #endif

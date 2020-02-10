@@ -24,9 +24,9 @@ texture2d_multi_array ->GL_TEXTURE_2D_MULTISAMPLE_ARRAY
 inf_depth     ->GL_DEPTH_COMPONENT
 inf_depth+sten ->GL_DEPTH_STENCIL
 inf_rgba ->GL_RGBA
-inf_red ->GL_red
+inf_red ->GL_RED
 inf_srgba8 ->GL_SRGB8_ALPHA8
-inf_ rgba16-> GL_RGBA16
+inf_rgba16-> GL_RGBA16
 inf_rgba32f ->GL_RGBA32F
 inf_inf_rgba16f ->GL_RGBA16F
 */
